@@ -562,14 +562,33 @@ function buildPlatforms(sceneIdx){
   const groundY=H*0.71;
   S.platforms=[];
 
-  if(sc.mechanic==='dodge'||sc.mechanic==='stillness'||sc.mechanic==='grid'||sc.mechanic==='collect'||sc.mechanic==='listen'){
+  if(sc.mechanic==='dodge'||sc.mechanic==='stillness'||sc.mechanic==='collect'||sc.mechanic==='listen'){
     // flat infinite ground
     S.platforms.push({x:-500,y:groundY,w:9999,h:60,type:'ground'});
   }
+  if(sc.mechanic==='grid'){
+    // Mechanic: purpose parkour. Chess tiles are real platforms and a visual path.
+    S.platforms.push({x:-200,y:groundY,w:520,h:60,type:'ground'});
+    const tiles=[
+      {x:300,y:groundY-44,w:112,h:22},
+      {x:455,y:groundY-86,w:108,h:22},
+      {x:615,y:groundY-130,w:108,h:22},
+      {x:780,y:groundY-92,w:112,h:22},
+      {x:945,y:groundY-146,w:108,h:22},
+      {x:1110,y:groundY-104,w:112,h:22},
+      {x:1275,y:groundY-156,w:108,h:22},
+      {x:1445,y:groundY-116,w:116,h:22},
+    ];
+    S.gridTiles=tiles.map((t,i)=>({
+      ...t,col:i,row:i%2,onPath:true,lit:false,hinted:i===0,reached:false,type:'chess'
+    }));
+    S.gridTiles.forEach(t=>S.platforms.push(t));
+    S.platforms.push({x:1600,y:groundY,w:460,h:60,type:'ground'});
+  }
   if(sc.mechanic==='platformer'){
     // Mechanic: resilience platforming. Short gaps and modest height changes keep jumps fair.
-    S.platforms.push({x:-200,y:groundY,w:260,h:60,type:'ground',cracked:true});
-    S.platforms.push({x:150,y:groundY-48,w:150,h:20,type:'platform',cracked:true});
+    S.platforms.push({x:-200,y:groundY,w:310,h:60,type:'ground',cracked:true});
+    S.platforms.push({x:150,y:groundY-42,w:150,h:20,type:'platform',cracked:true});
     S.platforms.push({x:330,y:groundY-92,w:145,h:20,type:'platform'});
     S.platforms.push({x:510,y:groundY-48,w:135,h:20,type:'platform',cracked:true});
     S.platforms.push({x:675,y:groundY,w:230,h:60,type:'ground'});
@@ -623,7 +642,7 @@ function worldWidth(){
   const sc=SCENES[S.scene];
   if(sc.mechanic==='platformer')return 1700;
   if(sc.mechanic==='climb')return 1400;
-  if(sc.mechanic==='grid')return 1400;
+  if(sc.mechanic==='grid')return 2100;
   return W*2.0;
 }
 
@@ -670,24 +689,7 @@ function initEnv(si){
     }
   }
   if(et==='grid'){
-    // chessboard tiles - one correct path
-    const cols=8,rows=3;
-    const tileW=Math.min(95,Math.floor(W*0.72/cols));
-    const tileH=42;
-    const rowGap=8;
-    const startX=220;
-    const startY=H*0.71-PH-tileH-rowGap;
-    const correctPath=[0,1,2,3,4,5,6,7].map(c=>({col:c,row:1}));
-    S.correctPath=correctPath;
-    for(let r=0;r<rows;r++){
-      for(let c=0;c<cols;c++){
-        const onPath=correctPath.some(p=>p.col===c&&p.row===r);
-        S.gridTiles.push({col:c,row:r,x:startX+c*(tileW+8),y:startY+r*(tileH+rowGap),w:tileW,h:tileH,onPath,lit:false,broken:false,hinted:c===0&&onPath});
-      }
-    }
-    // hint first tile
-    const firstCorrect=correctPath[0];
-    S.gridTiles.forEach(t=>{if(t.col===0&&t.row===firstCorrect.row)t.hinted=true;});
+    S.gridTiles.forEach((t,i)=>{t.hinted=i===0;t.lit=false;t.reached=false;});
     S.gridPlayerTile={col:-1,row:-1};
   }
   if(et==='platformer'){
@@ -796,6 +798,7 @@ function drawPlatforms(sc){
   S.platforms.forEach(pl=>{
     const sx=pl.x-S.camX,sy=pl.y;
     if(sx>W+100||sx+pl.w<-100)return;
+    if(pl.type==='chess')return;
     ctx.fillStyle=pl.type==='ground'?`rgba(${sc.pal.fl},0.95)`:`rgba(${sc.acc},0.18)`;
     ctx.fillRect(sx,sy,pl.w,pl.h);
     if(pl.cracked){
@@ -880,19 +883,53 @@ function drawEnv(si){
   }
 
   if(et==='grid'){
-    S.gridTiles.forEach(t=>{
-      const a=t.broken?0:0.22;
+    ctx.save();
+    ctx.globalAlpha=0.16;
+    ctx.translate(W*0.52,H*0.2);
+    ctx.transform(1,-0.12,0,0.55,0,0);
+    const bs=44;
+    for(let r=0;r<8;r++){
+      for(let c=0;c<8;c++){
+        ctx.fillStyle=(r+c)%2===0?'rgba(235,210,150,0.32)':'rgba(36,22,10,0.55)';
+        ctx.fillRect((c-4)*bs,(r-1)*bs,bs,bs);
+      }
+    }
+    ctx.strokeStyle='rgba(220,155,45,0.28)';ctx.lineWidth=2;
+    ctx.strokeRect(-4*bs,-bs,bs*8,bs*8);
+    ctx.restore();
+
+    const reached=S.gridTiles.filter(t=>t.reached);
+    const next=S.gridTiles.find(t=>t.hinted&&!t.reached);
+    const lastReached=reached[reached.length-1];
+    if(lastReached&&next){
+      ctx.save();ctx.globalAlpha=0.35+0.18*Math.sin(S.time*0.004);
+      ctx.strokeStyle='rgba(220,155,45,0.75)';ctx.lineWidth=1.5;
+      ctx.beginPath();
+      ctx.moveTo(lastReached.x+lastReached.w/2-S.camX,lastReached.y+lastReached.h/2);
+      ctx.lineTo(next.x+next.w/2-S.camX,next.y+next.h/2);
+      ctx.stroke();ctx.restore();
+    }
+
+    S.gridTiles.forEach((t,i)=>{
       const sx=t.x-S.camX;
+      const light=i%2===0;
+      const base=light?'rgba(235,210,150,0.46)':'rgba(44,28,12,0.72)';
       ctx.save();
-      ctx.globalAlpha=t.lit?0.7:t.hinted?0.45:a;
-      ctx.fillStyle=t.onPath?(t.lit?'rgba(220,155,45,0.8)':'rgba(220,155,45,0.3)'):'rgba(60,40,20,0.4)';
-      ctx.strokeStyle=t.hinted?'rgba(220,155,45,0.55)':'rgba(201,169,110,0.12)';ctx.lineWidth=1;
+      ctx.globalAlpha=t.lit?0.82:0.72;
+      ctx.fillStyle=t.lit?'rgba(220,155,45,0.55)':base;
+      ctx.strokeStyle=t.hinted?'rgba(255,220,120,0.95)':'rgba(201,169,110,0.2)';
+      ctx.lineWidth=t.hinted?2.2:1;
       ctx.beginPath();ctx.rect(sx,t.y,t.w,t.h);ctx.fill();ctx.stroke();
-      if(t.lit){
-        const tg=ctx.createRadialGradient(sx+t.w/2,t.y+t.h/2,0,sx+t.w/2,t.y+t.h/2,t.w*0.6);
-        tg.addColorStop(0,'rgba(220,155,45,0.3)');tg.addColorStop(1,'rgba(0,0,0,0)');
+      if(t.hinted||t.lit){
+        const glow=t.hinted?0.42+0.18*Math.sin(S.time*0.006):0.22;
+        const tg=ctx.createRadialGradient(sx+t.w/2,t.y+t.h/2,0,sx+t.w/2,t.y+t.h/2,t.w*0.82);
+        tg.addColorStop(0,`rgba(255,220,120,${glow})`);tg.addColorStop(1,'rgba(0,0,0,0)');
         ctx.fillStyle=tg;ctx.fill();
       }
+      ctx.globalAlpha=0.42;
+      ctx.fillStyle=light?'rgba(30,20,8,0.7)':'rgba(235,210,150,0.55)';
+      ctx.font='500 11px DM Sans,sans-serif';ctx.textAlign='center';
+      ctx.fillText(String(i+1),sx+t.w/2,t.y+t.h/2+4);
       ctx.restore();
     });
   }
@@ -1441,35 +1478,28 @@ function updateMechanic(dt,sc){
     if(S.collected.has(S.scene)&&S.px>W*1.05)tryAdvance();
   }
 
-  // ---- GRID: chessboard path ----
-  // Mechanic: Purpose. A deterministic middle-row chess path keeps the choice readable.
+  // ---- GRID: chessboard parkour path ----
+  // Mechanic: Purpose. Land on each glowing chess platform in sequence.
   if(et==='grid'){
     const feetY=S.py+PH;
-    const tileHits=S.gridTiles
-      .filter(t=>!t.broken&&S.px>=t.x-8&&S.px<=t.x+t.w+8&&feetY>=t.y-10&&feetY<=t.y+t.h+35)
-      .sort((a,b)=>Math.abs(feetY-(a.y+a.h/2))-Math.abs(feetY-(b.y+b.h/2)));
-    const t=tileHits[0];
-    if(t){
-      S.gridPlayerTile={col:t.col,row:t.row};
-      if(t.onPath){t.lit=true;}
-      else{
-        // wrong tile - flash and push back
-        S.px=Math.max(120,t.x-20);
-        S.pvx=-2;S.camShake=8;
-        addParticles(S.px,S.py,6,'rgba(200,80,50,0.5)',1.5,3);
-        // hint next correct
-        const nextCol=t.col;
-        S.gridTiles.forEach(nt=>{if(nt.col===nextCol+1&&nt.onPath)nt.hinted=true;});
+    const nextIdx=S.gridTiles.findIndex(t=>!t.reached);
+    const nextTile=nextIdx>=0?S.gridTiles[nextIdx]:null;
+    if(nextTile){
+      S.gridTiles.forEach((t,i)=>{t.hinted=i===nextIdx;});
+      const onNext=S.onGround&&S.px>=nextTile.x-10&&S.px<=nextTile.x+nextTile.w+10&&Math.abs(feetY-nextTile.y)<8;
+      if(onNext){
+        nextTile.reached=true;nextTile.lit=true;nextTile.hinted=false;
+        S.gridPlayerTile={col:nextTile.col,row:nextTile.row};
+        addParticles(nextTile.x+nextTile.w/2,nextTile.y,8,'rgba(220,155,45,0.55)',1.5,3);
+        const after=S.gridTiles[nextIdx+1];
+        if(after)after.hinted=true;
+        else if(!S.mechComplete){
+          S.mechComplete=true;
+          spawnOrb(nextTile.x+nextTile.w+70,groundOrbY);
+        }
       }
     }
-    S.gridTiles.forEach(t=>{
-      // hint reveal
-      if(t.onPath&&t.col===S.gridPlayerTile.col+1)t.hinted=true;
-    });
-    const lastCol=7;const lastTile=S.gridTiles.find(t=>t.col===lastCol&&t.onPath);
-    const onLast=lastTile&&lastTile.lit;
-    if(onLast&&!S.mechComplete){S.mechComplete=true;spawnOrb(lastTile.x+lastTile.w+80,groundOrbY);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<55)collectOrb();
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<55)collectOrb();
     if(S.collected.has(S.scene)&&S.px>S.orbX+90)tryAdvance();
   }
 
