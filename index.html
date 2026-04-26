@@ -172,7 +172,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- HUD -->
 <div id="hud">
   <div id="prog"><div id="prog-f"></div></div>
-  <div id="slabel">-</div>
+  <div id="slabel">—</div>
   <div id="octr"></div>
 </div>
 
@@ -188,7 +188,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- DIALOGUE -->
 <div id="dlg">
   <div id="dlg-inner">
-    <div id="dlg-spk">-</div>
+    <div id="dlg-spk">—</div>
     <div id="dlg-txt"></div>
     <button id="dlg-cont" onclick="nextDlg()">Continue</button>
     <div id="dlg-hint">Space or click Continue</div>
@@ -213,25 +213,25 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
   </div>
 </div>
 <button id="jump-btn">jump</button>
-<button id="interact-btn">E</button>
+<button id="interact-btn" style="display:none">E</button>
 
 <!-- HUD HINT -->
-<div id="ctrl-hint">WASD / Arrows - Move &amp; Jump<br>Space - Jump / Interact<br>E - Interact with NPCs</div>
+<div id="ctrl-hint">WASD / Arrows — Move &amp; Jump<br>Space — Jump / Interact<br>E — Interact with NPCs</div>
 
 <!-- TITLE -->
 <div id="title">
   <div class="tgrain"></div>
-  <p class="te">HDFS 108N - Penn State - Flourishing Final</p>
+  <p class="te">HDFS 108N &middot; Penn State &middot; Flourishing Final</p>
   <h1 class="th1">My<br><em>Flourishing</em><br>Journey</h1>
   <p class="ts">Wake up. Work. Study. Repeat.<br>Until something breaks open.</p>
-  <button class="tbtn" onclick="startGame()">Begin ></button>
+  <button class="tbtn" onclick="startGame()">Begin &rsaquo;</button>
 </div>
 
 <!-- BREATHING -->
 <div id="bscr">
-  <p class="be">Scene VIII - Embodiment</p>
+  <p class="be">Scene VIII &middot; Embodiment</p>
   <h2 class="bh">Come Back to Yourself</h2>
-  <p class="bd">4 counts in - 7 hold - 8 out.<br>Your nervous system knows what to do.</p>
+  <p class="bd">4 counts in &middot; 7 hold &middot; 8 out.<br>Your nervous system knows what to do.</p>
   <div class="brings">
     <div class="bring br1"></div>
     <div class="bring br2" id="b-ring">
@@ -243,13 +243,13 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
   <p class="binst" id="b-inst">Press Start when you are ready</p>
   <p class="bcnt" id="b-cnt">0 of 4 breaths complete</p>
   <button class="bstart" id="b-btn" onclick="toggleBreath()">Start Breathing</button>
-  <button class="bskip" onclick="endBreath()">Skip > Continue to Manifesto</button>
+  <button class="bskip" onclick="endBreath()">Skip &rarr; Continue to Manifesto</button>
 </div>
 
 <!-- MANIFESTO -->
 <div id="mscr">
   <div class="msi">
-    <p class="mse">Scene IX - Final Reflection - Part 1</p>
+    <p class="mse">Scene IX &middot; Final Reflection &middot; Part 1</p>
     <h2 class="msh">My<br><em>Manifesto</em></h2>
     <div class="mssym">
       <svg width="200" height="180" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
@@ -273,23 +273,23 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
       </svg>
     </div>
     <p class="msdef">"Flourishing, to me, is the ongoing practice of living with awareness, purpose, and compassion, while growing through challenges and staying connected to myself and others."</p>
-    <div class="msq"><p>"True belonging doesn't require you to change who you are; it requires you to be who you are."</p><cite>- Brene Brown</cite></div>
+    <div class="msq"><p>"True belonging doesn't require you to change who you are; it requires you to be who you are."</p><cite>&mdash; Brene Brown</cite></div>
     <ul class="mslist" id="ms-list"></ul>
-    <button class="msbtn" onclick="goMeasure()">Proceed to Flourishing Measure ></button>
+    <button class="msbtn" onclick="goMeasure()">Proceed to Flourishing Measure &rarr;</button>
   </div>
 </div>
 
 <!-- MEASURE -->
 <div id="qscr">
   <div class="qsi">
-    <p class="qse">Scene X - Part 2 - Flourishing Measure</p>
+    <p class="qse">Scene X &middot; Part 2 &middot; Flourishing Measure</p>
     <h2 class="qsh">Where Am<br><em>I Now?</em></h2>
-    <p class="qsp">On a scale of 1-10, how much do you agree with the following statements? Answer honestly. This is a reflection, not a grade.</p>
+    <p class="qsp">On a scale of 1&ndash;10, how much do you agree with the following statements? Answer honestly. This is a reflection, not a grade.</p>
     <div id="q-items"></div>
     <button class="qsub" onclick="submitQ()">Reveal My Score</button>
     <div class="qscore" id="q-score">
       <div class="qsnum" id="q-snum">--</div>
-      <div class="qslbl">Your Flourishing Score - out of 50</div>
+      <div class="qslbl">Your Flourishing Score &middot; out of 50</div>
       <div class="qsmsg" id="q-smsg">--</div>
       <p style="font-family:'Lora',serif;font-size:0.8rem;font-style:italic;color:rgba(90,130,220,0.28);margin-top:1.2rem">This is a snapshot, not a verdict. You are always in motion.</p>
       <button class="qrestart" onclick="goEnding()">"Excess is the end of contentment."</button>
@@ -300,7 +300,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- ENDING SCREEN -->
 <div id="endscr">
   <div id="end-line">"Excess is the end of contentment."</div>
-  <div id="end-sub" onclick="restartGame()">Play Again &nbsp;></div>
+  <div id="end-sub" onclick="restartGame()">Play Again &nbsp;&rsaquo;</div>
 </div>
 
 <script>
@@ -316,10 +316,10 @@ const MANIFESTO = [
   {t:"I will hold myself accountable by reflecting honestly on my actions and their impact on others.",th:"Reflection",sym:"="},
   {t:"I have learned that resilience is built, not given, and I will grow through discomfort instead of avoiding it.",th:"Resilience",sym:"^"},
   {t:"I will no longer continue patterns that drain my energy or disconnect me from who I want to be.",th:"Self-Care",sym:"-"},
-  {t:"I will remind myself that failure is not the opposite of success, it is part of becoming.",th:"Growth",sym:"/"},
+  {t:"I will remind myself that failure is not the opposite of success, it is part of becoming.",th:"Growth",sym:"\\"},
   {t:"I am committed to showing empathy, while also protecting myself from empathic fatigue.",th:"Empathy",sym:"<"},
   {t:"I will seek awe in ordinary moments, slowing down enough to appreciate life beyond productivity.",th:"Awe",sym:"@"},
-  {t:"I will build meaningful relationships by being present, listening deeply, and showing up fully.",th:"Belonging",sym:"+"},
+  {t:"I will build meaningful relationships by being present, listening deeply, and showing up fully.",th:"Belonging",sym:"&"},
   {t:"My meditation practice will ground me, even if it is just a few quiet breaths in a busy day.",th:"Mindfulness",sym:"()"},
   {t:"I will challenge othering by choosing curiosity and understanding over judgment.",th:"Othering",sym:"?"},
   {t:"I will create balance, not perfection, knowing that flourishing is not about being flawless.",th:"Balance",sym:":"},
@@ -339,9 +339,9 @@ const SCENES = [
     id:'opening',name:'Scene I',label:'On Autopilot',
     pal:{s1:[15,9,7],s2:[28,17,11],fl:[40,24,14]},acc:'200,140,70',
     dlg:[
-      {spk:'-',t:"Wake up. Work. Study. Exams. Repeat."},
-      {spk:'-',t:"A thousand chrome tabs open. Music playing somewhere in the background. I moved through days like I was watching myself from outside."},
-      {spk:'-',t:"Dodge the noise. Move forward."},
+      {spk:'—',t:"Wake up. Work. Study. Exams. Repeat."},
+      {spk:'—',t:"A thousand chrome tabs open. Music playing somewhere in the background. I moved through days like I was watching myself from outside."},
+      {spk:'—',t:"Dodge the noise. Move forward."},
     ],
     mIdx:0,mechanic:'dodge',
   },
@@ -349,9 +349,9 @@ const SCENES = [
     id:'awareness',name:'Scene II',label:'Learning to See',
     pal:{s1:[5,9,20],s2:[10,16,36],fl:[14,20,48]},acc:'70,120,210',
     dlg:[
-      {spk:'-',t:"Pause."},
-      {spk:'-',t:"Awareness doesn't arrive like lightning. It arrives like morning, quietly, if you're willing."},
-      {spk:'-',t:"Find the calm zones. Stand still. Let the noise fade."},
+      {spk:'—',t:"Pause."},
+      {spk:'—',t:"Awareness doesn't arrive like lightning. It arrives like morning, quietly, if you're willing."},
+      {spk:'—',t:"Find the calm zones. Stand still. Let the noise fade."},
     ],
     mIdx:1,mechanic:'stillness',
   },
@@ -359,9 +359,9 @@ const SCENES = [
     id:'purpose',name:'Scene III',label:'The Chessboard',
     pal:{s1:[18,10,4],s2:[36,20,6],fl:[46,26,10]},acc:'210,145,45',
     dlg:[
-      {spk:'-',t:"My mind felt like a chessboard."},
-      {spk:'-',t:"For the first time, I wasn't reacting. I was planning."},
-      {spk:'-',t:"Only one path forward is real. Choose carefully."},
+      {spk:'—',t:"My mind felt like a chessboard."},
+      {spk:'—',t:"For the first time, I wasn't reacting. I was planning."},
+      {spk:'—',t:"Only one path forward is real. Choose carefully."},
     ],
     mIdx:2,mechanic:'grid',
   },
@@ -369,9 +369,9 @@ const SCENES = [
     id:'resilience',name:'Scene IV',label:'Burnout',
     pal:{s1:[22,8,5],s2:[42,13,9],fl:[54,16,12]},acc:'195,65,45',
     dlg:[
-      {spk:'-',t:"Burnout hit. I fell sick. Influenza."},
-      {spk:'-',t:"Even then, work demanded I show up. I stayed in bed for a week."},
-      {spk:'-',t:"I had to put everyone on pause and take a week for myself."},
+      {spk:'—',t:"Burnout hit. I fell sick. Influenza."},
+      {spk:'—',t:"Even then, work demanded I show up. I stayed in bed for a week."},
+      {spk:'—',t:"I had to put everyone on pause and take a week for myself."},
     ],
     mIdx:5,mechanic:'platformer',
   },
@@ -379,9 +379,9 @@ const SCENES = [
     id:'gratitude',name:'Scene V',label:'The Arboretum',
     pal:{s1:[5,16,10],s2:[9,28,17],fl:[12,36,22]},acc:'75,195,115',
     dlg:[
-      {spk:'-',t:"One day, I took a walk in the arboretum. I carried my notebook with me."},
-      {spk:'-',t:"Time passed both slow and fast. Seconds lasted longer. And yet, the hours disappeared."},
-      {spk:'-',t:"I wrote poetry for six hours."},
+      {spk:'—',t:"One day, I took a walk in the arboretum. I carried my notebook with me."},
+      {spk:'—',t:"Time passed both slow and fast. Seconds lasted longer. And yet, the hours disappeared."},
+      {spk:'—',t:"I wrote poetry for six hours."},
     ],
     mIdx:3,mechanic:'collect',
   },
@@ -389,9 +389,9 @@ const SCENES = [
     id:'connection',name:'Scene VI',label:'Being Seen',
     pal:{s1:[9,7,22],s2:[16,13,40],fl:[20,17,50]},acc:'140,105,225',
     dlg:[
-      {spk:'-',t:"\"True belonging doesn't require you to change who you are; it requires you to be who you are.\""},
-      {spk:'-',t:"I used to perform belonging. Show up as whoever the room needed."},
-      {spk:'-',t:"Approach each person. Press E to listen. Don't walk away early."},
+      {spk:'—',t:"\"True belonging doesn't require you to change who you are; it requires you to be who you are.\""},
+      {spk:'—',t:"I used to perform belonging. Show up as whoever the room needed."},
+      {spk:'—',t:"Approach each person. Press E to listen. Don't walk away early."},
     ],
     mIdx:10,mechanic:'listen',
   },
@@ -399,9 +399,9 @@ const SCENES = [
     id:'awe',name:'Scene VII',label:'The Sky Moment',
     pal:{s1:[3,5,16],s2:[7,9,28],fl:[9,11,34]},acc:'95,135,225',
     dlg:[
-      {spk:'-',t:"The sky was doing something extraordinary. I actually stopped walking."},
-      {spk:'-',t:"That pause cost me nothing. And it gave me everything I didn't know I needed."},
-      {spk:'-',t:"Climb to the top. Then stop moving. Wait."},
+      {spk:'—',t:"The sky was doing something extraordinary. I actually stopped walking."},
+      {spk:'—',t:"That pause cost me nothing. And it gave me everything I didn't know I needed."},
+      {spk:'—',t:"Climb to the top. Then stop moving. Wait."},
     ],
     mIdx:9,mechanic:'climb',
   },
@@ -418,7 +418,7 @@ function resize(){
   W = window.innerWidth; H = window.innerHeight;
   canvas.width = W*DPR; canvas.height = H*DPR;
   canvas.style.width = W+'px'; canvas.style.height = H+'px';
-  ctx.setTransform(DPR,0,0,DPR,0,0);
+  ctx.scale(DPR,DPR);
 }
 resize();
 window.addEventListener('resize',resize);
@@ -567,7 +567,7 @@ function buildPlatforms(sceneIdx){
     S.platforms.push({x:-500,y:groundY,w:9999,h:60,type:'ground'});
   }
   if(sc.mechanic==='grid'){
-    // Mechanic: purpose parkour. Chess tiles are real platforms and a visual path.
+    // Purpose: chess platforms the player actually jumps between in sequence
     S.platforms.push({x:-200,y:groundY,w:520,h:60,type:'ground'});
     const tiles=[
       {x:280,y:groundY-30,w:124,h:22},
@@ -586,7 +586,7 @@ function buildPlatforms(sceneIdx){
     S.platforms.push({x:1575,y:groundY,w:485,h:60,type:'ground'});
   }
   if(sc.mechanic==='platformer'){
-    // Mechanic: resilience platforming. Short gaps and modest height changes keep jumps fair.
+    // Resilience: forgiving gaps — each gap is jumpable, no pixel-perfect required
     S.platforms.push({x:-200,y:groundY,w:310,h:60,type:'ground',cracked:true});
     S.platforms.push({x:150,y:groundY-42,w:150,h:20,type:'platform',cracked:true});
     S.platforms.push({x:330,y:groundY-92,w:145,h:20,type:'platform'});
@@ -597,7 +597,7 @@ function buildPlatforms(sceneIdx){
     S.platforms.push({x:1300,y:groundY,w:430,h:60,type:'ground'});
   }
   if(sc.mechanic==='climb'){
-    // Mechanic: awe climb. Stepping stones rise gradually so the final stillness platform is reachable.
+    // Awe: gentle stepping stones that rise steadily — reachable with one jump each
     S.platforms.push({x:-200,y:groundY,w:520,h:60,type:'ground'});
     S.platforms.push({x:300,y:groundY-72,w:150,h:18,type:'platform'});
     S.platforms.push({x:480,y:groundY-142,w:150,h:18,type:'platform'});
@@ -627,20 +627,8 @@ function checkFall(){
   if(S.py>H+80){
     // respawn at last checkpoint
     const sc=SCENES[S.scene];
-    if(sc.mechanic==='grid'){
-      const lastReached=[...S.gridTiles].reverse().find(t=>t.reached);
-      if(lastReached){
-        S.px=lastReached.x+lastReached.w/2;
-        S.py=lastReached.y-PH;
-      } else {
-        S.px=120;
-        S.py=H*0.71-PH;
-      }
-    } else {
-      S.px=sc.mechanic==='platformer'?120:W*0.12;
-      S.py=H*0.6;
-    }
-    S.pvx=0;S.pvy=0;S.onGround=false;
+    S.px=sc.mechanic==='platformer'?120:W*0.12;
+    S.py=H*0.6;S.pvx=0;S.pvy=0;
     S.camShake=12;
     S.shakeX=0;S.shakeY=0;
     addParticles(S.px,S.py,6,'rgba(200,80,50,0.5)',2,4);
@@ -652,10 +640,10 @@ function checkFall(){
 // ================================================================
 function worldWidth(){
   const sc=SCENES[S.scene];
-  if(sc.mechanic==='platformer')return 1700;
+  if(sc.mechanic==='platformer')return 1800;
   if(sc.mechanic==='climb')return 1400;
-  if(sc.mechanic==='grid')return 2100;
-  return W*2.0;
+  if(sc.mechanic==='grid')return 2150;
+  return W*2.2;
 }
 
 // ================================================================
@@ -672,35 +660,36 @@ function initScene(idx){
   S.particles=[];S.envParticles=[];S.shootingStars=[];
   S.cracks=[];S.notifications=[];S.glowItems=[];S.npcs=[];
   S.stillZones=[];S.gridTiles=[];
+  // Clear all input keys so held keys don't carry across scenes
+  Object.keys(KEYS).forEach(k=>KEYS[k]=false);
+  S.jumpHeld=false;
   buildPlatforms(idx);
   initEnv(idx);
   updateHUD();
-  // show orb-counter
   document.getElementById('vignette').classList.remove('on');
-  setTimeout(()=>openDlg(0),600);
+  document.getElementById('mechanic-ui').classList.remove('show');
+  setTimeout(()=>openDlg(0),700);
 }
 
 function initEnv(si){
   const sc=SCENES[si];
   const et=sc.mechanic;
 
-  // Mechanic: Opening. Walk right through notification obstacles to reveal the reflection orb.
   if(et==='dodge'){
     for(let i=0;i<5;i++) spawnNotif();
   }
   if(et==='stillness'){
-    // calm zones
+    // calm zones spaced across the world (world-space x coords)
     for(let i=0;i<3;i++){
       S.stillZones.push({
-        x:W*0.35+i*W*0.28,
-        y:H*0.71-PH,
-        w:140,
-        progress:0,
-        done:false
+        x:W*0.32+i*W*0.28,  // world-space x
+        y:H*0.71-PH,         // ground level
+        w:100,progress:0,done:false
       });
     }
   }
   if(et==='grid'){
+    // gridTiles are already set by buildPlatforms. Just init state.
     S.gridTiles.forEach((t,i)=>{t.hinted=i===0;t.lit=false;t.reached=false;});
     S.gridPlayerTile={col:-1,row:-1};
   }
@@ -721,11 +710,11 @@ function initEnv(si){
   if(et==='collect'){
     // arboretum objects
     const ITEMS=[
-      {sym:'notebook',label:'I opened the notebook.',x:W*0.28,y:H*0.71-PH},
-      {sym:'leaf',label:'The leaves were doing something beautiful.',x:W*0.48,y:H*0.71-PH},
-      {sym:'coffee',label:'Coffee had gone cold. I didn\'t mind.',x:W*0.62,y:H*0.71-PH},
-      {sym:'memory',label:'A girl passed. She didn\'t see me. That was fine.',x:W*0.78,y:H*0.71-PH},
-      {sym:'note',label:'I wrote until the twilight swallowed everything.',x:W*0.92,y:H*0.71-PH},
+      {sym:'notebook',label:'I opened the notebook.',x:W*0.28,y:H*0.68},
+      {sym:'leaf',label:'The leaves were doing something beautiful.',x:W*0.48,y:H*0.38},
+      {sym:'coffee',label:'Coffee had gone cold. I didn\'t mind.',x:W*0.62,y:H*0.55},
+      {sym:'memory',label:'A girl passed. She didn\'t see me. That was fine.',x:W*0.78,y:H*0.44},
+      {sym:'note',label:'I wrote until the twilight swallowed everything.',x:W*0.92,y:H*0.62},
     ];
     S.glowItems=ITEMS.map(it=>({...it,collected:false,a:0,ph:Math.random()*Math.PI*2}));
     // floating words
@@ -808,22 +797,24 @@ function drawBackground(sc){
 
 function drawPlatforms(sc){
   S.platforms.forEach(pl=>{
+    if(pl.type==='chess')return; // chess tiles drawn with cam offset in drawEnv
     const sx=pl.x-S.camX,sy=pl.y;
     if(sx>W+100||sx+pl.w<-100)return;
-    if(pl.type==='chess')return;
-    ctx.fillStyle=pl.type==='ground'?`rgba(${sc.pal.fl},0.95)`:`rgba(${sc.acc},0.18)`;
+    ctx.fillStyle=pl.type==='ground'?`rgba(${sc.pal.fl},0.95)`:`rgba(${sc.acc},0.2)`;
     ctx.fillRect(sx,sy,pl.w,pl.h);
     if(pl.cracked){
-      ctx.strokeStyle=`rgba(${sc.acc},0.3)`;ctx.lineWidth=0.8;
+      ctx.save();ctx.strokeStyle=`rgba(${sc.acc},0.28)`;ctx.lineWidth=0.8;
+      // Fixed crack positions (no Math.random in draw loop!)
       for(let i=0;i<3;i++){
-        const cx=sx+Math.random()*pl.w;
-        ctx.beginPath();ctx.moveTo(cx,sy);ctx.lineTo(cx+Math.random()*20-10,sy+pl.h*0.6);ctx.stroke();
+        const cx=sx+(i+1)*pl.w*0.25;
+        const jitter=(i%2===0?1:-1)*(6+i*3);
+        ctx.beginPath();ctx.moveTo(cx,sy);ctx.lineTo(cx+jitter,sy+pl.h*0.58);ctx.stroke();
       }
+      ctx.restore();
     }
     if(pl.final){
-      // glow the goal platform
-      ctx.save();ctx.globalAlpha=0.3+0.15*Math.sin(S.time*0.004);
-      ctx.fillStyle=`rgba(${sc.acc},0.4)`;ctx.fillRect(sx,sy-4,pl.w,4);ctx.restore();
+      ctx.save();ctx.globalAlpha=0.28+0.16*Math.sin(S.time*0.004);
+      ctx.fillStyle=`rgba(${sc.acc},0.45)`;ctx.fillRect(sx,sy-4,pl.w,4);ctx.restore();
     }
   });
 }
@@ -849,10 +840,9 @@ function drawEnv(si){
       ctx.save();ctx.globalAlpha=n.a;
       ctx.fillStyle='rgba(240,72,52,0.92)';
       const nx=n.x*W,ny=n.y*H;
-      const sx=nx-S.camX;
-      ctx.beginPath();if(ctx.roundRect)ctx.roundRect(sx,ny,n.w,22,3);else ctx.rect(sx,ny,n.w,22);ctx.fill();
+      ctx.beginPath();if(ctx.roundRect)ctx.roundRect(nx,ny,n.w,22,3);else ctx.rect(nx,ny,n.w,22);ctx.fill();
       ctx.fillStyle='rgba(255,255,255,0.9)';ctx.font='400 9.5px DM Sans,sans-serif';ctx.textAlign='left';
-      ctx.fillText(n.label,sx+7,ny+14.5);ctx.restore();
+      ctx.fillText(n.label,nx+7,ny+14.5);ctx.restore();
       // collision: world-based
       const nwx=nx, nwy=ny;
       if(S.dlgDone&&Math.abs(S.px-nwx-n.w/2)<50&&Math.abs(S.py-nwy-11)<22){
@@ -862,7 +852,7 @@ function drawEnv(si){
       }
     });
     S.notifications=S.notifications.filter(n=>n.life<n.maxLife);
-    if(!S.orbSpawned&&Math.random()<0.015)spawnNotif();
+    if(Math.random()<0.015)spawnNotif();
   }
 
   if(et==='stillness'){
@@ -872,75 +862,73 @@ function drawEnv(si){
     ctx.fillStyle=ag;ctx.fillRect(0,0,W,H);
 
     S.stillZones.forEach((z,i)=>{
+      const sx=z.x-S.camX; // world-space → screen-space
       const isDone=z.done;
       const a=isDone?0.7:0.25+0.15*Math.sin(S.time*0.003+i);
-      const sx=z.x-S.camX;
       ctx.save();ctx.globalAlpha=a;
-      const zg=ctx.createRadialGradient(sx,z.y,0,sx,z.y,z.w*0.6);
+      const zg=ctx.createRadialGradient(sx,z.y,0,sx,z.y,z.w*0.62);
       zg.addColorStop(0,'rgba(70,120,210,0.5)');zg.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle=zg;ctx.beginPath();ctx.arc(sx,z.y,z.w*0.6,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=zg;ctx.beginPath();ctx.arc(sx,z.y,z.w*0.62,0,Math.PI*2);ctx.fill();
       if(isDone){
-        ctx.fillStyle='rgba(70,120,210,1)';ctx.font='12px DM Sans,sans-serif';ctx.textAlign='center';
-        ctx.fillText('*',sx,z.y-32);
+        ctx.fillStyle='rgba(100,160,240,0.85)';ctx.font='11px DM Sans,sans-serif';ctx.textAlign='center';
+        ctx.fillText('*',sx,z.y-38);
       }
       ctx.restore();
-      // stillness progress for active zone
       if(!isDone&&z.progress>0){
-        ctx.save();ctx.globalAlpha=0.6;
-        ctx.strokeStyle='rgba(70,120,210,0.7)';ctx.lineWidth=2;
-        ctx.beginPath();ctx.arc(sx,z.y,28,-Math.PI/2,-Math.PI/2+z.progress*Math.PI*2);ctx.stroke();
+        ctx.save();ctx.globalAlpha=0.65;
+        ctx.strokeStyle='rgba(70,120,210,0.75)';ctx.lineWidth=2.2;
+        ctx.beginPath();ctx.arc(sx,z.y,30,-Math.PI/2,-Math.PI/2+z.progress*Math.PI*2);ctx.stroke();
         ctx.restore();
       }
     });
   }
 
   if(et==='grid'){
-    ctx.save();
-    ctx.globalAlpha=0.16;
-    ctx.translate(W*0.52,H*0.2);
-    ctx.transform(1,-0.12,0,0.55,0,0);
-    const bs=44;
-    for(let r=0;r<8;r++){
-      for(let c=0;c<8;c++){
-        ctx.fillStyle=(r+c)%2===0?'rgba(235,210,150,0.32)':'rgba(36,22,10,0.55)';
-        ctx.fillRect((c-4)*bs,(r-1)*bs,bs,bs);
-      }
+    // Ambient chessboard backdrop
+    ctx.save();ctx.globalAlpha=0.12;
+    ctx.translate(W*0.48,H*0.22);ctx.transform(1,-0.1,0,0.5,0,0);
+    const bs=40;
+    for(let r=0;r<8;r++) for(let c=0;c<8;c++){
+      ctx.fillStyle=(r+c)%2===0?'rgba(235,210,150,0.28)':'rgba(28,18,6,0.5)';
+      ctx.fillRect((c-4)*bs,(r-1)*bs,bs,bs);
     }
-    ctx.strokeStyle='rgba(220,155,45,0.28)';ctx.lineWidth=2;
-    ctx.strokeRect(-4*bs,-bs,bs*8,bs*8);
     ctx.restore();
 
-    const reached=S.gridTiles.filter(t=>t.reached);
-    const next=S.gridTiles.find(t=>t.hinted&&!t.reached);
-    const lastReached=reached[reached.length-1];
-    if(lastReached&&next){
-      ctx.save();ctx.globalAlpha=0.35+0.18*Math.sin(S.time*0.004);
-      ctx.strokeStyle='rgba(220,155,45,0.75)';ctx.lineWidth=1.5;
+    // Path connector to next tile
+    const nextIdxG=S.gridTiles.findIndex(t=>!t.reached);
+    const lastReachedG=[...S.gridTiles].filter(t=>t.reached).pop();
+    const nextTileG=nextIdxG>=0?S.gridTiles[nextIdxG]:null;
+    if(lastReachedG&&nextTileG){
+      ctx.save();ctx.globalAlpha=0.28+0.18*Math.sin(S.time*0.004);
+      ctx.strokeStyle='rgba(220,155,45,0.65)';ctx.lineWidth=1.5;ctx.setLineDash([4,7]);
       ctx.beginPath();
-      ctx.moveTo(lastReached.x+lastReached.w/2-S.camX,lastReached.y+lastReached.h/2);
-      ctx.lineTo(next.x+next.w/2-S.camX,next.y+next.h/2);
-      ctx.stroke();ctx.restore();
+      ctx.moveTo(lastReachedG.x+lastReachedG.w/2-S.camX,lastReachedG.y);
+      ctx.lineTo(nextTileG.x+nextTileG.w/2-S.camX,nextTileG.y);
+      ctx.stroke();ctx.setLineDash([]);ctx.restore();
     }
 
+    // Chess platform tiles (drawn here for visual; collidePlatforms handles physics)
     S.gridTiles.forEach((t,i)=>{
       const sx=t.x-S.camX;
-      const light=i%2===0;
-      const base=light?'rgba(235,210,150,0.46)':'rgba(44,28,12,0.72)';
+      if(sx>W+60||sx+t.w<-60)return;
+      const isLight=i%2===0;
       ctx.save();
-      ctx.globalAlpha=t.lit?0.82:0.72;
-      ctx.fillStyle=t.lit?(light?'rgba(235,210,150,0.62)':'rgba(92,62,24,0.78)'):base;
-      ctx.strokeStyle=t.hinted?'rgba(255,220,120,0.95)':'rgba(201,169,110,0.2)';
-      ctx.lineWidth=t.hinted?2.2:1;
-      ctx.beginPath();ctx.rect(sx,t.y,t.w,t.h);ctx.fill();ctx.stroke();
+      ctx.globalAlpha=t.lit?0.9:0.72;
+      ctx.fillStyle=t.lit
+        ?(isLight?'rgba(245,218,145,0.78)':'rgba(105,72,28,0.85)')
+        :(isLight?'rgba(200,178,115,0.55)':'rgba(38,24,8,0.65)');
+      ctx.strokeStyle=t.hinted?'rgba(255,222,100,1)':'rgba(201,169,110,0.22)';
+      ctx.lineWidth=t.hinted?2.5:1;
+      ctx.fillRect(sx,t.y,t.w,t.h);ctx.strokeRect(sx,t.y,t.w,t.h);
       if(t.hinted){
-        const glow=0.42+0.18*Math.sin(S.time*0.006);
-        const tg=ctx.createRadialGradient(sx+t.w/2,t.y+t.h/2,0,sx+t.w/2,t.y+t.h/2,t.w*0.82);
-        tg.addColorStop(0,`rgba(255,220,120,${glow})`);tg.addColorStop(1,'rgba(0,0,0,0)');
-        ctx.fillStyle=tg;ctx.fill();
+        const gp=0.32+0.2*Math.sin(S.time*0.006);
+        const tg=ctx.createRadialGradient(sx+t.w/2,t.y+t.h/2,0,sx+t.w/2,t.y+t.h/2,t.w*0.9);
+        tg.addColorStop(0,`rgba(255,220,100,${gp})`);tg.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle=tg;ctx.fillRect(sx,t.y,t.w,t.h);
       }
-      ctx.globalAlpha=0.42;
-      ctx.fillStyle=light?'rgba(30,20,8,0.7)':'rgba(235,210,150,0.55)';
-      ctx.font='500 11px DM Sans,sans-serif';ctx.textAlign='center';
+      ctx.globalAlpha=0.45;
+      ctx.fillStyle=isLight?'rgba(28,18,6,0.8)':'rgba(235,210,148,0.65)';
+      ctx.font='500 10px DM Sans,sans-serif';ctx.textAlign='center';
       ctx.fillText(String(i+1),sx+t.w/2,t.y+t.h/2+4);
       ctx.restore();
     });
@@ -989,10 +977,9 @@ function drawEnv(si){
       if(!p.fade&&p.a<p.maxA)p.a+=0.0015;
       else if(p.a>=p.maxA){p.fade=true;}
       if(p.fade){p.a-=0.0012;if(p.a<=0){p.a=0;p.fade=false;p.y=H*0.85+Math.random()*H*0.1;}}
-      const sx=p.x-S.camX;
       ctx.save();ctx.globalAlpha=p.a;
       ctx.fillStyle='rgba(100,220,140,1)';ctx.font='italic 300 13px Lora,serif';ctx.textAlign='center';
-      ctx.fillText(p.word,sx,p.y);ctx.restore();
+      ctx.fillText(p.word,p.x,p.y);ctx.restore();
       // glow on player touch
       if(Math.abs(S.px-p.x)<40&&Math.abs(S.py-p.y)<30){p.a=Math.min(p.a+0.05,0.9);}
     });
@@ -1001,16 +988,15 @@ function drawEnv(si){
       if(it.collected)return;
       it.a=Math.min(it.a+0.02,0.85);
       const pulse=it.a*(0.75+0.25*Math.sin(S.time*0.0022+it.ph));
-      const sx=it.x-S.camX;
       ctx.save();ctx.globalAlpha=pulse;
-      const ig=ctx.createRadialGradient(sx,it.y,0,sx,it.y,28);
+      const ig=ctx.createRadialGradient(it.x,it.y,0,it.x,it.y,28);
       ig.addColorStop(0,'rgba(75,200,115,0.28)');ig.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle=ig;ctx.beginPath();ctx.arc(sx,it.y,28,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=ig;ctx.beginPath();ctx.arc(it.x,it.y,28,0,Math.PI*2);ctx.fill();
       const syms={notebook:'[~]',leaf:'*',coffee:'()',memory:'?',note:'~'};
       ctx.fillStyle='rgba(100,220,140,0.88)';ctx.font='italic 300 11px DM Sans,sans-serif';ctx.textAlign='center';
-      ctx.fillText(syms[it.sym]||'*',sx,it.y-20);
+      ctx.fillText(syms[it.sym]||'*',it.x,it.y-20);
       ctx.fillStyle='rgba(100,220,140,0.72)';ctx.font='300 9px DM Sans,sans-serif';
-      ctx.fillText(it.sym,sx,it.y+4);
+      ctx.fillText(it.sym,it.x,it.y+4);
       ctx.restore();
       // collect check
       if(Math.abs(S.px-it.x)<30&&Math.abs(S.py-it.y)<35){
@@ -1025,20 +1011,20 @@ function drawEnv(si){
     // purple ambient
     S.npcs.forEach((npc,i)=>{
       const glow=npc.listened?0.55:0.2+0.12*Math.sin(S.time*0.0018+npc.ph);
-      const nx=npc.x,ny=npc.y,sx=nx-S.camX;
+      const nx=npc.x,ny=npc.y;
       ctx.save();ctx.globalAlpha=glow;
-      const ng=ctx.createRadialGradient(sx,ny,0,sx,ny,35);
+      const ng=ctx.createRadialGradient(nx,ny,0,nx,ny,35);
       ng.addColorStop(0,'rgba(140,105,225,0.4)');ng.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle=ng;ctx.beginPath();ctx.arc(sx,ny,35,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=ng;ctx.beginPath();ctx.arc(nx,ny,35,0,Math.PI*2);ctx.fill();
       // silhouette
       ctx.fillStyle='rgba(140,105,225,'+Math.min(glow+0.3,1)+')';
-      ctx.beginPath();ctx.arc(sx,ny-18,5.5,0,Math.PI*2);ctx.fill();
-      ctx.fillRect(sx-3.5,ny-13,7,16);ctx.fillRect(sx-4.5,ny+3,3.5,11);ctx.fillRect(sx+1,ny+3,3.5,11);
+      ctx.beginPath();ctx.arc(nx,ny-18,5.5,0,Math.PI*2);ctx.fill();
+      ctx.fillRect(nx-3.5,ny-13,7,16);ctx.fillRect(nx-4.5,ny+3,3.5,11);ctx.fillRect(nx+1,ny+3,3.5,11);
       // proximity E hint
       if(!npc.listened&&Math.abs(S.px-nx)<55&&Math.abs(S.py-ny)<40){
         ctx.globalAlpha=0.7+0.3*Math.sin(S.time*0.008);
         ctx.fillStyle='rgba(140,105,225,0.8)';ctx.font='500 10px DM Sans,sans-serif';ctx.textAlign='center';
-        ctx.fillText('[E] listen',sx,ny-36);
+        ctx.fillText('[E] listen',nx,ny-36);
       }
       ctx.restore();
     });
@@ -1048,7 +1034,7 @@ function drawEnv(si){
       const a=S.npcs[i],b=S.npcs[i+1];
       ctx.save();ctx.globalAlpha=0.35+0.15*Math.sin(S.time*0.002+i);
       ctx.strokeStyle='rgba(140,105,225,0.6)';ctx.lineWidth=1.5;
-      ctx.beginPath();ctx.moveTo(a.x-S.camX,a.y);ctx.lineTo(b.x-S.camX,b.y);ctx.stroke();ctx.restore();
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore();
     }
   }
 
@@ -1115,24 +1101,32 @@ function drawOrb(sc){
   ctx.save();ctx.globalAlpha=0.5+0.32*Math.sin(S.orbPulse*0.5);
   ctx.fillStyle=`rgba(${sc.acc},1)`;ctx.font='500 9.5px DM Sans,sans-serif';ctx.textAlign='center';
   ctx.fillText('REFLECTION',ox,oy-26+ff);ctx.restore();
-  // portal right edge
-  const px2=W-40;
-  const pby=H*0.53,pbh=H*0.22;
-  const pa=0.5+0.28*Math.sin(S.time*0.003);
-  ctx.save();ctx.globalAlpha=pa;
-  const dg=ctx.createRadialGradient(px2,pby,0,px2,pby,80);
-  dg.addColorStop(0,`rgba(${sc.acc},0.18)`);dg.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=dg;ctx.beginPath();ctx.arc(px2,pby,80,0,Math.PI*2);ctx.fill();
-  ctx.strokeStyle=`rgba(${sc.acc},0.7)`;ctx.lineWidth=1.8;
-  ctx.strokeRect(px2-16,pby-pbh/2,32,pbh);
-  ctx.beginPath();ctx.arc(px2,pby-pbh/2,16,Math.PI,0);ctx.stroke();
-  ctx.fillStyle=`rgba(${sc.acc},0.65)`;ctx.font='13px DM Sans,sans-serif';ctx.textAlign='center';ctx.fillText('>',px2,pby+5);
-  ctx.restore();
 }
 
 // ================================================================
-// PLAYER RENDERING
+// PORTAL (right-edge door, appears only after orb collected)
 // ================================================================
+function drawPortal(sc){
+  if(!S.collected.has(S.scene))return;
+  const px2=W-38;
+  const pby=H*0.54,pbh=H*0.2;
+  const pa=0.52+0.26*Math.sin(S.time*0.003);
+  ctx.save();ctx.globalAlpha=pa;
+  const dg=ctx.createRadialGradient(px2,pby,0,px2,pby,78);
+  dg.addColorStop(0,`rgba(${sc.acc},0.2)`);dg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=dg;ctx.beginPath();ctx.arc(px2,pby,78,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle=`rgba(${sc.acc},0.72)`;ctx.lineWidth=1.8;
+  ctx.strokeRect(px2-15,pby-pbh/2,30,pbh);
+  ctx.beginPath();ctx.arc(px2,pby-pbh/2,15,Math.PI,0);ctx.stroke();
+  ctx.fillStyle=`rgba(${sc.acc},0.68)`;ctx.font='14px DM Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText('>',px2,pby+5);
+  // Subtle "next" label
+  ctx.globalAlpha=pa*0.55;ctx.font='400 8px DM Sans,sans-serif';ctx.letterSpacing='0.15em';
+  ctx.fillText('NEXT',px2,pby+pbh/2+14);
+  ctx.restore();
+}
+
+
 function drawPlayer(sc){
   const x=S.px-S.camX,y=S.py;
   const acc=`rgba(${sc.acc},`;
@@ -1192,25 +1186,21 @@ function tryListenNPC(){
     if(Math.abs(S.px-npc.x)<55&&Math.abs(S.py-npc.y)<40){
       npc.listened=true;S.npcListened++;
       // show NPC line as dialogue
-      openCustomDlg('-',npc.line);
+      openCustomDlg('—',npc.line);
       addParticles(npc.x,npc.y,8,'rgba(140,105,225,0.5)',1.5,3);
       break;
     }
   }
 }
 function openCustomDlg(spk,txt){
-  if(S.typeTimer)clearInterval(S.typeTimer);
-  if(S.typeDelay)clearTimeout(S.typeDelay);
-  S.typeTimer=null;S.typeDelay=null;S.typing=true;S.typeFullText=txt;
   S.dlgOpen=true;
   S.customDlg=true;
-  S.dlgDone=true;
   document.getElementById('dlg-spk').textContent=spk;
   const el=document.getElementById('dlg-txt');
   el.classList.remove('vis');el.textContent='';
   document.getElementById('dlg').classList.add('open');
-  S.typeDelay=setTimeout(()=>{el.classList.add('vis');typeText(el,txt);},100);
-  setTimeout(()=>{if(S.dlgOpen&&S.customDlg)closeDlg();},2000);
+  setTimeout(()=>{el.classList.add('vis');typeText(el,txt);},100);
+  // Auto-close after reading time — but don't block dlgDone
 }
 // ================================================================
 // GAME FLOW
@@ -1223,7 +1213,7 @@ window.startGame=startGame;
 
 function updateHUD(){
   const sc=SCENES[S.scene];
-  if(sc)document.getElementById('slabel').textContent=sc.name+' - '+sc.label;
+  if(sc)document.getElementById('slabel').textContent=sc.name+' · '+sc.label;
   document.getElementById('prog-f').style.width=(S.scene/(SCENES.length+2)*100)+'%';
   const el=document.getElementById('octr');
   el.innerHTML=SCENES.map((_,i)=>`<div class="od${S.collected.has(i)?' c':''}"></div>`).join('');
@@ -1232,37 +1222,34 @@ function updateHUD(){
 function openDlg(idx){
   const sc=SCENES[S.scene];if(!sc)return;
   const d=sc.dlg[idx];if(!d)return;
-  if(S.typeTimer)clearInterval(S.typeTimer);
-  if(S.typeDelay)clearTimeout(S.typeDelay);
-  S.typeTimer=null;S.typeDelay=null;S.typing=true;S.typeFullText=d.t;
   S.dlgOpen=true;S.dlgIdx=idx;S.customDlg=false;
-  document.getElementById('dlg-spk').textContent=d.spk||'-';
+  document.getElementById('dlg-spk').textContent=d.spk||'—';
   const el=document.getElementById('dlg-txt');
   el.classList.remove('vis');el.textContent='';
   document.getElementById('dlg').classList.add('open');
-  S.typeDelay=setTimeout(()=>{el.classList.add('vis');typeText(el,d.t);},120);
+  setTimeout(()=>{el.classList.add('vis');typeText(el,d.t);},120);
 }
+let _typeIv=null;
 function typeText(el,txt){
-  if(S.typeTimer)clearInterval(S.typeTimer);
-  if(S.typeDelay)clearTimeout(S.typeDelay);
-  S.typeTimer=null;S.typeDelay=null;S.typing=true;S.typeFullText=txt;
+  if(_typeIv){clearInterval(_typeIv);_typeIv=null;}
+  S._currentTypeTxt=txt;
   let i=0;el.textContent='';
-  S.typeTimer=setInterval(()=>{
+  _typeIv=setInterval(()=>{
     if(i<txt.length){el.textContent+=txt[i];i++;}
-    else{
-      clearInterval(S.typeTimer);
-      S.typeTimer=null;S.typing=false;
-    }
+    else{clearInterval(_typeIv);_typeIv=null;}
   },22);
+}
+function skipType(el){
+  // Instantly complete current typewriter
+  if(_typeIv){clearInterval(_typeIv);_typeIv=null;}
+  if(S._currentTypeTxt)el.textContent=S._currentTypeTxt;
 }
 function nextDlg(){
   if(S.mCardOpen)return;
-  if(S.typing){
-    if(S.typeTimer)clearInterval(S.typeTimer);
-    if(S.typeDelay)clearTimeout(S.typeDelay);
-    S.typeTimer=null;S.typeDelay=null;S.typing=false;
+  // If typewriter still running, complete it first
+  if(_typeIv){
     const el=document.getElementById('dlg-txt');
-    el.classList.add('vis');el.textContent=S.typeFullText||el.textContent;
+    skipType(el);
     return;
   }
   if(S.customDlg){closeDlg();return;}
@@ -1280,6 +1267,7 @@ function closeDlg(){
 function spawnOrb(x,y){
   if(S.orbSpawned)return;
   S.orbSpawned=true;S.orbX=x;S.orbY=y;
+  // Particles stored in world-space (drawParticles subtracts camX)
   addParticles(x,y,12,'rgba(201,169,110,0.6)',2,4,1.5);
 }
 
@@ -1299,7 +1287,7 @@ function collectOrb(){
   const m=MANIFESTO[sc.mIdx];
   setTimeout(()=>{
     S.mCardOpen=true;
-    document.getElementById('mc-num').textContent='Manifesto Statement '+(sc.mIdx+1)+' - Collected';
+    document.getElementById('mc-num').textContent='Manifesto Statement '+(sc.mIdx+1)+' · Collected';
     document.getElementById('mc-sym').textContent=m.sym||'*';
     document.getElementById('mc-txt').textContent=m.t;
     document.getElementById('mc-th').textContent=m.th;
@@ -1307,7 +1295,10 @@ function collectOrb(){
   },600);
 }
 function closeMCard(){
-  document.getElementById('mcard').classList.remove('show');S.mCardOpen=false;
+  document.getElementById('mcard').classList.remove('show');
+  S.mCardOpen=false;
+  // Auto-advance to next scene after a short beat — player shouldn't have to find an invisible threshold
+  setTimeout(()=>tryAdvance(),400);
 }
 window.closeMCard=closeMCard;
 
@@ -1340,7 +1331,7 @@ function endBreath(){
   buildManifesto();
   document.getElementById('mscr').classList.add('on');
   document.getElementById('prog-f').style.width='88%';
-  document.getElementById('slabel').textContent='Scene IX - Final Reflection';
+  document.getElementById('slabel').textContent='Scene IX · Final Reflection';
   if(S.breathTimer)clearTimeout(S.breathTimer);S.breathRunning=false;
 }
 window.endBreath=endBreath;
@@ -1355,12 +1346,12 @@ function goMeasure(){
   buildMeasure();
   document.getElementById('qscr').classList.add('on');
   document.getElementById('prog-f').style.width='95%';
-  document.getElementById('slabel').textContent='Scene X - Flourishing Measure';
+  document.getElementById('slabel').textContent='Scene X · Flourishing Measure';
 }
 window.goMeasure=goMeasure;
 function buildMeasure(){
   document.getElementById('q-items').innerHTML=MEASURE_QS.map((q,i)=>`
-    <div class="qitem"><p class="qnum">Statement ${q.n} - ${q.th}</p>
+    <div class="qitem"><p class="qnum">Statement ${q.n} · ${q.th}</p>
     <p class="qtxt">${q.t}</p>
     <div class="q-slider-wrap"><div class="qrow">
       <input type="range" class="qsl" id="qq${i}" min="1" max="10" value="5" step="1" oninput="upQ(${i},this.value)">
@@ -1376,10 +1367,10 @@ function submitQ(){
   const total=vals.reduce((a,b)=>a+b,0);
   document.getElementById('q-snum').textContent=total;
   const pct=total/50;
-  let msg=pct>=0.85?"You are deeply engaged with your flourishing. These aren't finished practices - they're living commitments.":
+  let msg=pct>=0.85?"You are deeply engaged with your flourishing. These aren't finished practices — they're living commitments.":
           pct>=0.70?"You're doing meaningfully well. Real strengths are here, alongside honest invitations to go deeper.":
-          pct>=0.55?"You're in the middle of the work - which is exactly where growth lives.":
-          "This is where the journey begins. Low scores aren't failures - they're clarity.";
+          pct>=0.55?"You're in the middle of the work — which is exactly where growth lives.":
+          "This is where the journey begins. Low scores aren't failures — they're clarity.";
   document.getElementById('q-smsg').textContent=msg;
   document.getElementById('q-score').classList.add('on');
   document.getElementById('prog-f').style.width='100%';
@@ -1452,128 +1443,142 @@ function breathDone(){
 // ================================================================
 function updateMechanic(dt,sc){
   const et=sc.mechanic;
-  if(S.mCardOpen||S.dlgOpen)return;
-  const groundOrbY=H*0.71-PH;
+  if(!S.dlgDone||S.mCardOpen||S.dlgOpen)return;
 
-  // ---- DODGE: just walk right, notifications are obstacles ----
+  // ---- DODGE: walk right past the notification chaos ----
   if(et==='dodge'){
-    if(S.px>W*1.1&&!S.mechComplete&&!S.orbSpawned){
-      S.mechComplete=true;
-      spawnOrb(W*1.18,groundOrbY);
-    }
-    if(S.orbSpawned&&!S.collected.has(S.scene)&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
-    if(S.collected.has(S.scene)&&!S.mCardOpen)tryAdvance();
+    const groundOrbY=H*0.71-PH;
+    if(S.px>W*1.08&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*1.18,groundOrbY);}
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
   }
 
   // ---- STILLNESS: stand in calm zones ----
-  // Mechanic: Awareness. Stand quietly inside each ground-level calm zone.
   if(et==='stillness'){
     const isMoving=Math.abs(S.pvx)>0.5||Math.abs(S.pvy)>0.5;
     let inZone=false;
+    let activeZone=null;
     S.stillZones.forEach(z=>{
       if(z.done)return;
-      const nearX=Math.abs(S.px-z.x)<z.w*0.65;
-      const nearY=Math.abs(S.py-z.y)<45;
-      if(nearX&&nearY){
-        inZone=true;z.active=true;
+      // Use world-space distance (player and zones are both in world coords)
+      const dist=Math.sqrt((S.px-z.x)**2+(S.py-z.y)**2);
+      if(dist<z.w*0.65){
+        inZone=true;activeZone=z;
         if(!isMoving){
-          z.progress=Math.min(1,z.progress+dt/3200);
-          if(z.progress>=1){z.done=true;addParticles(z.x,z.y,10,'rgba(70,120,210,0.55)',1.5,3);}
-        } else {z.progress=Math.max(0,z.progress-dt/8000);}
-        const ui=document.getElementById('mechanic-ui');
+          z.progress=Math.min(1,z.progress+dt/3000);
+          if(z.progress>=1){
+            z.done=true;
+            addParticles(z.x,z.y,10,'rgba(70,120,210,0.55)',1.5,3);
+          }
+        } else {
+          // Gentle decay — moving costs but doesn't wipe everything
+          z.progress=Math.max(0,z.progress-dt*0.00025);
+        }
         document.getElementById('mechanic-bar-wrap').style.display='';
         document.getElementById('mechanic-bar').style.width=(z.progress*100)+'%';
-        document.getElementById('mechanic-label').textContent='Stay still...';
+        document.getElementById('mechanic-label').textContent=isMoving?'Stop moving...':'Stay still...';
         document.getElementById('mechanic-label').style.textTransform='uppercase';
         document.getElementById('mechanic-label').style.letterSpacing='0.22em';
-        ui.classList.add('show');
+        document.getElementById('mechanic-ui').classList.add('show');
       }
     });
     if(!inZone){document.getElementById('mechanic-ui').classList.remove('show');}
     const allDone=S.stillZones.every(z=>z.done);
-    if(allDone&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,groundOrbY);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>W*1.05)tryAdvance();
+    // Spawn orb near the last zone
+    if(allDone&&!S.mechComplete){
+      S.mechComplete=true;
+      const lastZ=S.stillZones[S.stillZones.length-1];
+      spawnOrb(lastZ.x+160,lastZ.y-20);
+    }
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<42&&Math.abs(S.py-S.orbY)<42)collectOrb();
   }
 
-  // ---- GRID: chessboard parkour path ----
-  // Mechanic: Purpose. Land on each glowing chess platform in sequence.
+  // ---- GRID: land on each chess platform in sequence (purpose = intentional steps) ----
   if(et==='grid'){
-    const feetY=S.py+PH;
     const nextIdx=S.gridTiles.findIndex(t=>!t.reached);
     const nextTile=nextIdx>=0?S.gridTiles[nextIdx]:null;
     if(nextTile){
-      S.gridTiles.forEach((t,i)=>{t.hinted=i===nextIdx;});
-      const onNext=S.onGround&&S.px>=nextTile.x-36&&S.px<=nextTile.x+nextTile.w+36&&Math.abs(feetY-nextTile.y)<15;
+      // Hint only the next tile
+      S.gridTiles.forEach((t,i)=>{t.hinted=(i===nextIdx);});
+      // Check if player has landed on the next tile
+      const feetY=S.py+PH;
+      const onNext=S.onGround&&
+        S.px>=nextTile.x-20&&S.px<=nextTile.x+nextTile.w+20&&
+        Math.abs(feetY-nextTile.y)<12;
       if(onNext){
         nextTile.reached=true;nextTile.lit=true;nextTile.hinted=false;
         S.gridPlayerTile={col:nextTile.col,row:nextTile.row};
         addParticles(nextTile.x+nextTile.w/2,nextTile.y,8,'rgba(220,155,45,0.55)',1.5,3);
+        // Hint the one after
         const after=S.gridTiles[nextIdx+1];
         if(after)after.hinted=true;
-        else if(!S.mechComplete&&!S.orbSpawned){
+        else if(!S.mechComplete){
+          // All platforms reached
           S.mechComplete=true;
-          spawnOrb(nextTile.x+nextTile.w+85,groundOrbY);
+          const last=nextTile;
+          spawnOrb(last.x+last.w+100,last.y);
         }
       }
     }
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<55)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>S.orbX+90)tryAdvance();
   }
 
-  // Mechanic: Resilience. Cross the forgiving platform chain and collect the orb near the far ground.
+  // ---- PLATFORMER: cross the platforms to reach the far end ----
   if(et==='platformer'){
-    if(S.px>1320&&!S.mechComplete){S.mechComplete=true;spawnOrb(1390,groundOrbY);}
+    const groundOrbY=H*0.71-PH;
+    if(S.px>1300&&!S.mechComplete){S.mechComplete=true;spawnOrb(1380,groundOrbY);}
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<44)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>1540)tryAdvance();
   }
 
-  // Mechanic: Gratitude. All keepsakes sit near ground level and can be gathered by walking.
+  // ---- COLLECT: gather all arboretum keepsakes ----
   if(et==='collect'){
+    const groundOrbY=H*0.71-PH;
     const all=S.glowItems.every(it=>it.collected);
-    if(all&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.98,groundOrbY);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>W*1.1)tryAdvance();
+    if(all&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.96,groundOrbY);}
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<42&&Math.abs(S.py-S.orbY)<42)collectOrb();
   }
 
-  // Mechanic: Connection. Approach each visible NPC and press E to listen.
+  // ---- LISTEN: approach and listen to all NPCs ----
   if(et==='listen'){
-    if(S.npcListened>=S.npcTotal&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,groundOrbY);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>W*1.05)tryAdvance();
+    const groundOrbY=H*0.71-PH;
+    if(S.npcListened>=S.npcTotal&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.86,groundOrbY);}
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<42&&Math.abs(S.py-S.orbY)<42)collectOrb();
   }
 
-  // Mechanic: Awe. Reach the final platform, release horizontal movement, and let stillness fill.
+  // ---- CLIMB: reach top platform and stop moving ----
   if(et==='climb'){
-    const isMoving=Math.abs(S.pvx)>0.35||Math.abs(S.pvy)>0.35;
+    const isMoving=Math.abs(S.pvx)>0.35;
     const finalPlatform=S.platforms.find(pl=>pl.final);
-    const highEnough=!!finalPlatform&&S.onGround&&S.px>=finalPlatform.x-12&&S.px<=finalPlatform.x+finalPlatform.w+12;
+    // Player must be standing on the final platform
+    const onFinal=!!finalPlatform&&S.onGround&&
+      S.px>=finalPlatform.x-10&&S.px<=finalPlatform.x+finalPlatform.w+10&&
+      Math.abs((S.py+PH)-finalPlatform.y)<6;
     const ui=document.getElementById('mechanic-ui');
-    if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)&&highEnough&&!isMoving){
-      S.aweStopped=Math.min(S.aweStopped+dt,S.aweNeeded);
-      document.getElementById('mechanic-bar-wrap').style.display='';
-      document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
-      document.getElementById('mechanic-label').textContent='Stop moving...';
-      document.getElementById('mechanic-label').style.textTransform='uppercase';
-      document.getElementById('mechanic-label').style.letterSpacing='0.22em';
-      ui.classList.add('show');
-      if(S.aweStopped>=S.aweNeeded&&!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)){
-        S.mechComplete=true;spawnOrb(S.px+55,S.py-35);
-        ui.classList.remove('show');
-      }
-    } else {
-      if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene))S.aweStopped=Math.max(0,S.aweStopped-dt/7000);
-      if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)&&highEnough){
+    if(onFinal&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)){
+      if(!isMoving){
+        S.aweStopped=Math.min(S.aweStopped+dt,S.aweNeeded);
         document.getElementById('mechanic-bar-wrap').style.display='';
         document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
-        document.getElementById('mechanic-label').textContent='Stop moving...';
+        document.getElementById('mechanic-label').textContent='Be still...';
         document.getElementById('mechanic-label').style.textTransform='uppercase';
         document.getElementById('mechanic-label').style.letterSpacing='0.22em';
         ui.classList.add('show');
-      } else ui.classList.remove('show');
+        if(S.aweStopped>=S.aweNeeded){
+          S.mechComplete=true;
+          spawnOrb(S.px,S.py-50);
+          ui.classList.remove('show');
+        }
+      } else {
+        // Moving - decay slowly so a brief twitch doesn't reset everything
+        S.aweStopped=Math.max(0,S.aweStopped-dt*0.35);
+        document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
+        ui.classList.add('show');
+      }
+    } else if(!S.mechComplete&&!S.orbSpawned) {
+      // Not on final platform - show hint if close, hide bar otherwise
+      if(S.aweStopped>0)S.aweStopped=Math.max(0,S.aweStopped-dt*0.5);
+      ui.classList.remove('show');
     }
     if(S.orbSpawned&&!S.collected.has(S.scene)&&!S.mCardOpen&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<50)collectOrb();
-    if(S.collected.has(S.scene)&&!S.mCardOpen&&S.px>1200)tryAdvance();
   }
 }
 
@@ -1640,6 +1645,7 @@ function draw(){
   drawEnv(S.scene);
   drawPlatforms(sc);
   if(S.orbSpawned)drawOrb(sc);
+  drawPortal(sc);
   drawPlayer(sc);
   drawParticles();
   ctx.restore();
