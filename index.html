@@ -862,7 +862,7 @@ function drawEnv(si){
       }
     });
     S.notifications=S.notifications.filter(n=>n.life<n.maxLife);
-    if(Math.random()<0.015)spawnNotif();
+    if(!S.orbSpawned&&Math.random()<0.015)spawnNotif();
   }
 
   if(et==='stillness'){
@@ -1457,9 +1457,12 @@ function updateMechanic(dt,sc){
 
   // ---- DODGE: just walk right, notifications are obstacles ----
   if(et==='dodge'){
-    if(S.px>W*1.1&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*1.18,groundOrbY);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>W*1.35)tryAdvance();
+    if(S.px>W*1.1&&!S.mechComplete&&!S.orbSpawned){
+      S.mechComplete=true;
+      spawnOrb(W*1.18,groundOrbY);
+    }
+    if(S.orbSpawned&&!S.collected.has(S.scene)&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
+    if(S.collected.has(S.scene)&&!S.mCardOpen)tryAdvance();
   }
 
   // ---- STILLNESS: stand in calm zones ----
