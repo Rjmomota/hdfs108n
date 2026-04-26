@@ -570,20 +570,20 @@ function buildPlatforms(sceneIdx){
     // Mechanic: purpose parkour. Chess tiles are real platforms and a visual path.
     S.platforms.push({x:-200,y:groundY,w:520,h:60,type:'ground'});
     const tiles=[
-      {x:300,y:groundY-44,w:112,h:22},
-      {x:455,y:groundY-86,w:108,h:22},
-      {x:615,y:groundY-130,w:108,h:22},
-      {x:780,y:groundY-92,w:112,h:22},
-      {x:945,y:groundY-146,w:108,h:22},
-      {x:1110,y:groundY-104,w:112,h:22},
-      {x:1275,y:groundY-156,w:108,h:22},
-      {x:1445,y:groundY-116,w:116,h:22},
+      {x:280,y:groundY-30,w:124,h:22},
+      {x:430,y:groundY-70,w:112,h:22},
+      {x:590,y:groundY-112,w:112,h:22},
+      {x:755,y:groundY-82,w:116,h:22},
+      {x:920,y:groundY-128,w:112,h:22},
+      {x:1085,y:groundY-92,w:116,h:22},
+      {x:1250,y:groundY-140,w:112,h:22},
+      {x:1420,y:groundY-104,w:120,h:22},
     ];
     S.gridTiles=tiles.map((t,i)=>({
       ...t,col:i,row:i%2,onPath:true,lit:false,hinted:i===0,reached:false,type:'chess'
     }));
     S.gridTiles.forEach(t=>S.platforms.push(t));
-    S.platforms.push({x:1600,y:groundY,w:460,h:60,type:'ground'});
+    S.platforms.push({x:1575,y:groundY,w:485,h:60,type:'ground'});
   }
   if(sc.mechanic==='platformer'){
     // Mechanic: resilience platforming. Short gaps and modest height changes keep jumps fair.
@@ -627,8 +627,20 @@ function checkFall(){
   if(S.py>H+80){
     // respawn at last checkpoint
     const sc=SCENES[S.scene];
-    S.px=sc.mechanic==='platformer'?120:W*0.12;
-    S.py=H*0.6;S.pvx=0;S.pvy=0;
+    if(sc.mechanic==='grid'){
+      const lastReached=[...S.gridTiles].reverse().find(t=>t.reached);
+      if(lastReached){
+        S.px=lastReached.x+lastReached.w/2;
+        S.py=lastReached.y-PH;
+      } else {
+        S.px=120;
+        S.py=H*0.71-PH;
+      }
+    } else {
+      S.px=sc.mechanic==='platformer'?120:W*0.12;
+      S.py=H*0.6;
+    }
+    S.pvx=0;S.pvy=0;S.onGround=false;
     S.camShake=12;
     S.shakeX=0;S.shakeY=0;
     addParticles(S.px,S.py,6,'rgba(200,80,50,0.5)',2,4);
@@ -916,12 +928,12 @@ function drawEnv(si){
       const base=light?'rgba(235,210,150,0.46)':'rgba(44,28,12,0.72)';
       ctx.save();
       ctx.globalAlpha=t.lit?0.82:0.72;
-      ctx.fillStyle=t.lit?'rgba(220,155,45,0.55)':base;
+      ctx.fillStyle=t.lit?(light?'rgba(235,210,150,0.62)':'rgba(92,62,24,0.78)'):base;
       ctx.strokeStyle=t.hinted?'rgba(255,220,120,0.95)':'rgba(201,169,110,0.2)';
       ctx.lineWidth=t.hinted?2.2:1;
       ctx.beginPath();ctx.rect(sx,t.y,t.w,t.h);ctx.fill();ctx.stroke();
-      if(t.hinted||t.lit){
-        const glow=t.hinted?0.42+0.18*Math.sin(S.time*0.006):0.22;
+      if(t.hinted){
+        const glow=0.42+0.18*Math.sin(S.time*0.006);
         const tg=ctx.createRadialGradient(sx+t.w/2,t.y+t.h/2,0,sx+t.w/2,t.y+t.h/2,t.w*0.82);
         tg.addColorStop(0,`rgba(255,220,120,${glow})`);tg.addColorStop(1,'rgba(0,0,0,0)');
         ctx.fillStyle=tg;ctx.fill();
@@ -1187,6 +1199,9 @@ function tryListenNPC(){
   }
 }
 function openCustomDlg(spk,txt){
+  if(S.typeTimer)clearInterval(S.typeTimer);
+  if(S.typeDelay)clearTimeout(S.typeDelay);
+  S.typeTimer=null;S.typeDelay=null;S.typing=true;S.typeFullText=txt;
   S.dlgOpen=true;
   S.customDlg=true;
   S.dlgDone=true;
@@ -1194,7 +1209,7 @@ function openCustomDlg(spk,txt){
   const el=document.getElementById('dlg-txt');
   el.classList.remove('vis');el.textContent='';
   document.getElementById('dlg').classList.add('open');
-  setTimeout(()=>{el.classList.add('vis');typeText(el,txt);},100);
+  S.typeDelay=setTimeout(()=>{el.classList.add('vis');typeText(el,txt);},100);
   setTimeout(()=>{if(S.dlgOpen&&S.customDlg)closeDlg();},2000);
 }
 // ================================================================
@@ -1486,16 +1501,16 @@ function updateMechanic(dt,sc){
     const nextTile=nextIdx>=0?S.gridTiles[nextIdx]:null;
     if(nextTile){
       S.gridTiles.forEach((t,i)=>{t.hinted=i===nextIdx;});
-      const onNext=S.onGround&&S.px>=nextTile.x-10&&S.px<=nextTile.x+nextTile.w+10&&Math.abs(feetY-nextTile.y)<8;
+      const onNext=S.onGround&&S.px>=nextTile.x-36&&S.px<=nextTile.x+nextTile.w+36&&Math.abs(feetY-nextTile.y)<15;
       if(onNext){
         nextTile.reached=true;nextTile.lit=true;nextTile.hinted=false;
         S.gridPlayerTile={col:nextTile.col,row:nextTile.row};
         addParticles(nextTile.x+nextTile.w/2,nextTile.y,8,'rgba(220,155,45,0.55)',1.5,3);
         const after=S.gridTiles[nextIdx+1];
         if(after)after.hinted=true;
-        else if(!S.mechComplete){
+        else if(!S.mechComplete&&!S.orbSpawned){
           S.mechComplete=true;
-          spawnOrb(nextTile.x+nextTile.w+70,groundOrbY);
+          spawnOrb(nextTile.x+nextTile.w+85,groundOrbY);
         }
       }
     }
@@ -1531,7 +1546,7 @@ function updateMechanic(dt,sc){
     const finalPlatform=S.platforms.find(pl=>pl.final);
     const highEnough=!!finalPlatform&&S.onGround&&S.px>=finalPlatform.x-12&&S.px<=finalPlatform.x+finalPlatform.w+12;
     const ui=document.getElementById('mechanic-ui');
-    if(highEnough&&!isMoving){
+    if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)&&highEnough&&!isMoving){
       S.aweStopped=Math.min(S.aweStopped+dt,S.aweNeeded);
       document.getElementById('mechanic-bar-wrap').style.display='';
       document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
@@ -1539,13 +1554,13 @@ function updateMechanic(dt,sc){
       document.getElementById('mechanic-label').style.textTransform='uppercase';
       document.getElementById('mechanic-label').style.letterSpacing='0.22em';
       ui.classList.add('show');
-      if(S.aweStopped>=S.aweNeeded&&!S.mechComplete){
-        S.mechComplete=true;spawnOrb(S.px,S.py-48);
+      if(S.aweStopped>=S.aweNeeded&&!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)){
+        S.mechComplete=true;spawnOrb(S.px+55,S.py-35);
         ui.classList.remove('show');
       }
     } else {
-      S.aweStopped=Math.max(0,S.aweStopped-dt/7000);
-      if(highEnough&&!S.mechComplete){
+      if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene))S.aweStopped=Math.max(0,S.aweStopped-dt/7000);
+      if(!S.mCardOpen&&!S.mechComplete&&!S.orbSpawned&&!S.collected.has(S.scene)&&highEnough){
         document.getElementById('mechanic-bar-wrap').style.display='';
         document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
         document.getElementById('mechanic-label').textContent='Stop moving...';
@@ -1554,8 +1569,8 @@ function updateMechanic(dt,sc){
         ui.classList.add('show');
       } else ui.classList.remove('show');
     }
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<50)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>1200)tryAdvance();
+    if(S.orbSpawned&&!S.collected.has(S.scene)&&!S.mCardOpen&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<50)collectOrb();
+    if(S.collected.has(S.scene)&&!S.mCardOpen&&S.px>1200)tryAdvance();
   }
 }
 
