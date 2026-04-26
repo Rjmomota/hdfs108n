@@ -213,7 +213,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
   </div>
 </div>
 <button id="jump-btn">jump</button>
-<button id="interact-btn" style="display:none">E</button>
+<button id="interact-btn">E</button>
 
 <!-- HUD HINT -->
 <div id="ctrl-hint">WASD / Arrows - Move &amp; Jump<br>Space - Jump / Interact<br>E - Interact with NPCs</div>
@@ -221,7 +221,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- TITLE -->
 <div id="title">
   <div class="tgrain"></div>
-  <p class="te">HDFS 108N &middot; Penn State &middot; Flourishing Final</p>
+  <p class="te">HDFS 108N - Penn State - Flourishing Final</p>
   <h1 class="th1">My<br><em>Flourishing</em><br>Journey</h1>
   <p class="ts">Wake up. Work. Study. Repeat.<br>Until something breaks open.</p>
   <button class="tbtn" onclick="startGame()">Begin ></button>
@@ -229,9 +229,9 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 
 <!-- BREATHING -->
 <div id="bscr">
-  <p class="be">Scene VIII &middot; Embodiment</p>
+  <p class="be">Scene VIII - Embodiment</p>
   <h2 class="bh">Come Back to Yourself</h2>
-  <p class="bd">4 counts in &middot; 7 hold &middot; 8 out.<br>Your nervous system knows what to do.</p>
+  <p class="bd">4 counts in - 7 hold - 8 out.<br>Your nervous system knows what to do.</p>
   <div class="brings">
     <div class="bring br1"></div>
     <div class="bring br2" id="b-ring">
@@ -249,7 +249,7 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- MANIFESTO -->
 <div id="mscr">
   <div class="msi">
-    <p class="mse">Scene IX &middot; Final Reflection &middot; Part 1</p>
+    <p class="mse">Scene IX - Final Reflection - Part 1</p>
     <h2 class="msh">My<br><em>Manifesto</em></h2>
     <div class="mssym">
       <svg width="200" height="180" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
@@ -282,14 +282,14 @@ input[type=range].qsl::-moz-range-thumb{width:19px;height:19px;border-radius:50%
 <!-- MEASURE -->
 <div id="qscr">
   <div class="qsi">
-    <p class="qse">Scene X &middot; Part 2 &middot; Flourishing Measure</p>
+    <p class="qse">Scene X - Part 2 - Flourishing Measure</p>
     <h2 class="qsh">Where Am<br><em>I Now?</em></h2>
     <p class="qsp">On a scale of 1-10, how much do you agree with the following statements? Answer honestly. This is a reflection, not a grade.</p>
     <div id="q-items"></div>
     <button class="qsub" onclick="submitQ()">Reveal My Score</button>
     <div class="qscore" id="q-score">
       <div class="qsnum" id="q-snum">--</div>
-      <div class="qslbl">Your Flourishing Score &middot; out of 50</div>
+      <div class="qslbl">Your Flourishing Score - out of 50</div>
       <div class="qsmsg" id="q-smsg">--</div>
       <p style="font-family:'Lora',serif;font-size:0.8rem;font-style:italic;color:rgba(90,130,220,0.28);margin-top:1.2rem">This is a snapshot, not a verdict. You are always in motion.</p>
       <button class="qrestart" onclick="goEnding()">"Excess is the end of contentment."</button>
@@ -316,10 +316,10 @@ const MANIFESTO = [
   {t:"I will hold myself accountable by reflecting honestly on my actions and their impact on others.",th:"Reflection",sym:"="},
   {t:"I have learned that resilience is built, not given, and I will grow through discomfort instead of avoiding it.",th:"Resilience",sym:"^"},
   {t:"I will no longer continue patterns that drain my energy or disconnect me from who I want to be.",th:"Self-Care",sym:"-"},
-  {t:"I will remind myself that failure is not the opposite of success, it is part of becoming.",th:"Growth",sym:"\\"},
+  {t:"I will remind myself that failure is not the opposite of success, it is part of becoming.",th:"Growth",sym:"/"},
   {t:"I am committed to showing empathy, while also protecting myself from empathic fatigue.",th:"Empathy",sym:"<"},
   {t:"I will seek awe in ordinary moments, slowing down enough to appreciate life beyond productivity.",th:"Awe",sym:"@"},
-  {t:"I will build meaningful relationships by being present, listening deeply, and showing up fully.",th:"Belonging",sym:"&"},
+  {t:"I will build meaningful relationships by being present, listening deeply, and showing up fully.",th:"Belonging",sym:"+"},
   {t:"My meditation practice will ground me, even if it is just a few quiet breaths in a busy day.",th:"Mindfulness",sym:"()"},
   {t:"I will challenge othering by choosing curiosity and understanding over judgment.",th:"Othering",sym:"?"},
   {t:"I will create balance, not perfection, knowing that flourishing is not about being flawless.",th:"Balance",sym:":"},
@@ -567,23 +567,23 @@ function buildPlatforms(sceneIdx){
     S.platforms.push({x:-500,y:groundY,w:9999,h:60,type:'ground'});
   }
   if(sc.mechanic==='platformer'){
-    // burnout scene - gaps and floating platforms
-    S.platforms.push({x:-200,y:groundY,w:220,h:60,type:'ground',cracked:true});
-    S.platforms.push({x:180,y:groundY-60,w:130,h:20,type:'platform',cracked:true});
-    S.platforms.push({x:360,y:groundY-120,w:100,h:20,type:'platform'});
-    S.platforms.push({x:510,y:groundY-60,w:90,h:20,type:'platform',cracked:true});
-    S.platforms.push({x:640,y:groundY,w:180,h:60,type:'ground'});
-    S.platforms.push({x:870,y:groundY-80,w:120,h:20,type:'platform'});
-    S.platforms.push({x:1040,y:groundY-160,w:100,h:20,type:'platform'});
-    S.platforms.push({x:1200,y:groundY,w:400,h:60,type:'ground'});
+    // Mechanic: resilience platforming. Short gaps and modest height changes keep jumps fair.
+    S.platforms.push({x:-200,y:groundY,w:260,h:60,type:'ground',cracked:true});
+    S.platforms.push({x:150,y:groundY-48,w:150,h:20,type:'platform',cracked:true});
+    S.platforms.push({x:330,y:groundY-92,w:145,h:20,type:'platform'});
+    S.platforms.push({x:510,y:groundY-48,w:135,h:20,type:'platform',cracked:true});
+    S.platforms.push({x:675,y:groundY,w:230,h:60,type:'ground'});
+    S.platforms.push({x:940,y:groundY-58,w:150,h:20,type:'platform'});
+    S.platforms.push({x:1120,y:groundY-108,w:150,h:20,type:'platform'});
+    S.platforms.push({x:1300,y:groundY,w:430,h:60,type:'ground'});
   }
   if(sc.mechanic==='climb'){
-    // awe scene - stepping platforms going up
-    S.platforms.push({x:-200,y:groundY,w:500,h:60,type:'ground'});
-    S.platforms.push({x:320,y:groundY-110,w:120,h:18,type:'platform'});
-    S.platforms.push({x:500,y:groundY-200,w:110,h:18,type:'platform'});
-    S.platforms.push({x:680,y:groundY-300,w:120,h:18,type:'platform'});
-    S.platforms.push({x:850,y:groundY-390,w:150,h:18,type:'platform',final:true});
+    // Mechanic: awe climb. Stepping stones rise gradually so the final stillness platform is reachable.
+    S.platforms.push({x:-200,y:groundY,w:520,h:60,type:'ground'});
+    S.platforms.push({x:300,y:groundY-72,w:150,h:18,type:'platform'});
+    S.platforms.push({x:480,y:groundY-142,w:150,h:18,type:'platform'});
+    S.platforms.push({x:660,y:groundY-212,w:150,h:18,type:'platform'});
+    S.platforms.push({x:840,y:groundY-282,w:170,h:18,type:'platform',final:true});
     S.platforms.push({x:1100,y:groundY,w:400,h:60,type:'ground'});
   }
 }
@@ -624,7 +624,7 @@ function worldWidth(){
   if(sc.mechanic==='platformer')return 1700;
   if(sc.mechanic==='climb')return 1400;
   if(sc.mechanic==='grid')return 1400;
-  return W*1.5;
+  return W*2.0;
 }
 
 // ================================================================
@@ -653,6 +653,7 @@ function initEnv(si){
   const sc=SCENES[si];
   const et=sc.mechanic;
 
+  // Mechanic: Opening. Walk right through notification obstacles to reveal the reflection orb.
   if(et==='dodge'){
     for(let i=0;i<5;i++) spawnNotif();
   }
@@ -662,7 +663,7 @@ function initEnv(si){
       S.stillZones.push({
         x:W*0.35+i*W*0.28,
         y:H*0.71-PH,
-        w:120,
+        w:140,
         progress:0,
         done:false
       });
@@ -673,14 +674,15 @@ function initEnv(si){
     const cols=8,rows=3;
     const tileW=Math.min(95,Math.floor(W*0.72/cols));
     const tileH=42;
+    const rowGap=8;
     const startX=220;
-    const startY=H*0.71-PH-65;
+    const startY=H*0.71-PH-tileH-rowGap;
     const correctPath=[0,1,2,3,4,5,6,7].map(c=>({col:c,row:1}));
     S.correctPath=correctPath;
     for(let r=0;r<rows;r++){
       for(let c=0;c<cols;c++){
         const onPath=correctPath.some(p=>p.col===c&&p.row===r);
-        S.gridTiles.push({col:c,row:r,x:startX+c*(tileW+8),y:startY+r*(tileH+8),w:tileW,h:tileH,onPath,lit:false,broken:false,hinted:c===0&&onPath});
+        S.gridTiles.push({col:c,row:r,x:startX+c*(tileW+8),y:startY+r*(tileH+rowGap),w:tileW,h:tileH,onPath,lit:false,broken:false,hinted:c===0&&onPath});
       }
     }
     // hint first tile
@@ -705,11 +707,11 @@ function initEnv(si){
   if(et==='collect'){
     // arboretum objects
     const ITEMS=[
-      {sym:'notebook',label:'I opened the notebook.',x:W*0.28,y:H*0.66},
-      {sym:'leaf',label:'The leaves were doing something beautiful.',x:W*0.48,y:H*0.66},
-      {sym:'coffee',label:'Coffee had gone cold. I didn\'t mind.',x:W*0.62,y:H*0.66},
-      {sym:'memory',label:'A girl passed. She didn\'t see me. That was fine.',x:W*0.78,y:H*0.66},
-      {sym:'note',label:'I wrote until the twilight swallowed everything.',x:W*0.92,y:H*0.66},
+      {sym:'notebook',label:'I opened the notebook.',x:W*0.28,y:H*0.71-PH},
+      {sym:'leaf',label:'The leaves were doing something beautiful.',x:W*0.48,y:H*0.71-PH},
+      {sym:'coffee',label:'Coffee had gone cold. I didn\'t mind.',x:W*0.62,y:H*0.71-PH},
+      {sym:'memory',label:'A girl passed. She didn\'t see me. That was fine.',x:W*0.78,y:H*0.71-PH},
+      {sym:'note',label:'I wrote until the twilight swallowed everything.',x:W*0.92,y:H*0.71-PH},
     ];
     S.glowItems=ITEMS.map(it=>({...it,collected:false,a:0,ph:Math.random()*Math.PI*2}));
     // floating words
@@ -938,9 +940,10 @@ function drawEnv(si){
       if(!p.fade&&p.a<p.maxA)p.a+=0.0015;
       else if(p.a>=p.maxA){p.fade=true;}
       if(p.fade){p.a-=0.0012;if(p.a<=0){p.a=0;p.fade=false;p.y=H*0.85+Math.random()*H*0.1;}}
+      const sx=p.x-S.camX;
       ctx.save();ctx.globalAlpha=p.a;
       ctx.fillStyle='rgba(100,220,140,1)';ctx.font='italic 300 13px Lora,serif';ctx.textAlign='center';
-      ctx.fillText(p.word,p.x,p.y);ctx.restore();
+      ctx.fillText(p.word,sx,p.y);ctx.restore();
       // glow on player touch
       if(Math.abs(S.px-p.x)<40&&Math.abs(S.py-p.y)<30){p.a=Math.min(p.a+0.05,0.9);}
     });
@@ -1168,7 +1171,7 @@ window.startGame=startGame;
 
 function updateHUD(){
   const sc=SCENES[S.scene];
-  if(sc)document.getElementById('slabel').textContent=sc.name+' · '+sc.label;
+  if(sc)document.getElementById('slabel').textContent=sc.name+' - '+sc.label;
   document.getElementById('prog-f').style.width=(S.scene/(SCENES.length+2)*100)+'%';
   const el=document.getElementById('octr');
   el.innerHTML=SCENES.map((_,i)=>`<div class="od${S.collected.has(i)?' c':''}"></div>`).join('');
@@ -1226,7 +1229,7 @@ function collectOrb(){
   const m=MANIFESTO[sc.mIdx];
   setTimeout(()=>{
     S.mCardOpen=true;
-    document.getElementById('mc-num').textContent='Manifesto Statement '+(sc.mIdx+1)+' · Collected';
+    document.getElementById('mc-num').textContent='Manifesto Statement '+(sc.mIdx+1)+' - Collected';
     document.getElementById('mc-sym').textContent=m.sym||'*';
     document.getElementById('mc-txt').textContent=m.t;
     document.getElementById('mc-th').textContent=m.th;
@@ -1267,7 +1270,7 @@ function endBreath(){
   buildManifesto();
   document.getElementById('mscr').classList.add('on');
   document.getElementById('prog-f').style.width='88%';
-  document.getElementById('slabel').textContent='Scene IX · Final Reflection';
+  document.getElementById('slabel').textContent='Scene IX - Final Reflection';
   if(S.breathTimer)clearTimeout(S.breathTimer);S.breathRunning=false;
 }
 window.endBreath=endBreath;
@@ -1282,12 +1285,12 @@ function goMeasure(){
   buildMeasure();
   document.getElementById('qscr').classList.add('on');
   document.getElementById('prog-f').style.width='95%';
-  document.getElementById('slabel').textContent='Scene X · Flourishing Measure';
+  document.getElementById('slabel').textContent='Scene X - Flourishing Measure';
 }
 window.goMeasure=goMeasure;
 function buildMeasure(){
   document.getElementById('q-items').innerHTML=MEASURE_QS.map((q,i)=>`
-    <div class="qitem"><p class="qnum">Statement ${q.n} · ${q.th}</p>
+    <div class="qitem"><p class="qnum">Statement ${q.n} - ${q.th}</p>
     <p class="qtxt">${q.t}</p>
     <div class="q-slider-wrap"><div class="qrow">
       <input type="range" class="qsl" id="qq${i}" min="1" max="10" value="5" step="1" oninput="upQ(${i},this.value)">
@@ -1380,27 +1383,30 @@ function breathDone(){
 function updateMechanic(dt,sc){
   const et=sc.mechanic;
   if(S.mCardOpen||S.dlgOpen)return;
+  const groundOrbY=H*0.71-PH;
 
   // ---- DODGE: just walk right, notifications are obstacles ----
   if(et==='dodge'){
-    if(S.px>W*1.1&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*1.18,H*0.62);}
+    if(S.px>W*1.1&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*1.18,groundOrbY);}
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
     if(S.collected.has(S.scene)&&S.px>W*1.35)tryAdvance();
   }
 
   // ---- STILLNESS: stand in calm zones ----
+  // Mechanic: Awareness. Stand quietly inside each ground-level calm zone.
   if(et==='stillness'){
     const isMoving=Math.abs(S.pvx)>0.5||Math.abs(S.pvy)>0.5;
     let inZone=false;
     S.stillZones.forEach(z=>{
       if(z.done)return;
-      const dist=Math.sqrt((S.px-z.x)**2+(S.py-z.y)**2);
-      if(dist<z.w*0.55){
+      const nearX=Math.abs(S.px-z.x)<z.w*0.65;
+      const nearY=Math.abs(S.py-z.y)<45;
+      if(nearX&&nearY){
         inZone=true;z.active=true;
         if(!isMoving){
           z.progress=Math.min(1,z.progress+dt/3200);
           if(z.progress>=1){z.done=true;addParticles(z.x,z.y,10,'rgba(70,120,210,0.55)',1.5,3);}
-        } else {z.progress=Math.max(0,z.progress-0.04);}
+        } else {z.progress=Math.max(0,z.progress-dt/8000);}
         const ui=document.getElementById('mechanic-ui');
         document.getElementById('mechanic-bar-wrap').style.display='';
         document.getElementById('mechanic-bar').style.width=(z.progress*100)+'%';
@@ -1412,71 +1418,95 @@ function updateMechanic(dt,sc){
     });
     if(!inZone){document.getElementById('mechanic-ui').classList.remove('show');}
     const allDone=S.stillZones.every(z=>z.done);
-    if(allDone&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,H*0.62);}
+    if(allDone&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,groundOrbY);}
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
     if(S.collected.has(S.scene)&&S.px>W*1.05)tryAdvance();
   }
 
   // ---- GRID: chessboard path ----
+  // Mechanic: Purpose. A deterministic middle-row chess path keeps the choice readable.
   if(et==='grid'){
-    S.gridTiles.forEach(t=>{
-      const onTile=S.px>=t.x&&S.px<=t.x+t.w&&S.py>=t.y-10&&S.py<=t.y+t.h+10;
-      if(onTile&&!t.broken){
-        S.gridPlayerTile={col:t.col,row:t.row};
-        if(t.onPath){t.lit=true;}
-        else{
-          // wrong tile - flash and push back
-          S.px=Math.max(120,t.x-20);
-          S.pvx=-2;S.camShake=8;
-          addParticles(S.px,S.py,6,'rgba(200,80,50,0.5)',1.5,3);
-          // hint next correct
-          const nextCol=t.col;
-          S.gridTiles.forEach(nt=>{if(nt.col===nextCol+1&&nt.onPath)nt.hinted=true;});
-        }
+    const feetY=S.py+PH;
+    const tileHits=S.gridTiles
+      .filter(t=>!t.broken&&S.px>=t.x-8&&S.px<=t.x+t.w+8&&feetY>=t.y-10&&feetY<=t.y+t.h+35)
+      .sort((a,b)=>Math.abs(feetY-(a.y+a.h/2))-Math.abs(feetY-(b.y+b.h/2)));
+    const t=tileHits[0];
+    if(t){
+      S.gridPlayerTile={col:t.col,row:t.row};
+      if(t.onPath){t.lit=true;}
+      else{
+        // wrong tile - flash and push back
+        S.px=Math.max(120,t.x-20);
+        S.pvx=-2;S.camShake=8;
+        addParticles(S.px,S.py,6,'rgba(200,80,50,0.5)',1.5,3);
+        // hint next correct
+        const nextCol=t.col;
+        S.gridTiles.forEach(nt=>{if(nt.col===nextCol+1&&nt.onPath)nt.hinted=true;});
       }
+    }
+    S.gridTiles.forEach(t=>{
       // hint reveal
       if(t.onPath&&t.col===S.gridPlayerTile.col+1)t.hinted=true;
     });
     const lastCol=7;const lastTile=S.gridTiles.find(t=>t.col===lastCol&&t.onPath);
     const onLast=lastTile&&lastTile.lit;
-    if(onLast&&!S.mechComplete){S.mechComplete=true;spawnOrb(lastTile.x+lastTile.w+80,H*0.62);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<35)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>W*1.25)tryAdvance();
+    if(onLast&&!S.mechComplete){S.mechComplete=true;spawnOrb(lastTile.x+lastTile.w+80,groundOrbY);}
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<35&&Math.abs(S.py-S.orbY)<55)collectOrb();
+    if(S.collected.has(S.scene)&&S.px>S.orbX+90)tryAdvance();
   }
 
-  // ---- PLATFORMER: reach end ----
+  // Mechanic: Resilience. Cross the forgiving platform chain and collect the orb near the far ground.
   if(et==='platformer'){
-    if(S.px>1380&&!S.mechComplete){S.mechComplete=true;spawnOrb(1450,H*0.58);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
-    if(S.collected.has(S.scene)&&S.px>1560)tryAdvance();
+    if(S.px>1320&&!S.mechComplete){S.mechComplete=true;spawnOrb(1390,groundOrbY);}
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<44)collectOrb();
+    if(S.collected.has(S.scene)&&S.px>1540)tryAdvance();
   }
 
-  // ---- COLLECT: gather all arboretum items ----
+  // Mechanic: Gratitude. All keepsakes sit near ground level and can be gathered by walking.
   if(et==='collect'){
     const all=S.glowItems.every(it=>it.collected);
-    if(all&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.98,H*0.62);}
+    if(all&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.98,groundOrbY);}
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
     if(S.collected.has(S.scene)&&S.px>W*1.1)tryAdvance();
   }
 
-  // ---- LISTEN: approach all NPCs ----
+  // Mechanic: Connection. Approach each visible NPC and press E to listen.
   if(et==='listen'){
-    if(S.npcListened>=S.npcTotal&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,H*0.62);}
+    if(S.npcListened>=S.npcTotal&&!S.mechComplete){S.mechComplete=true;spawnOrb(W*0.88,groundOrbY);}
     if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<38)collectOrb();
     if(S.collected.has(S.scene)&&S.px>W*1.05)tryAdvance();
   }
 
-  // ---- CLIMB: reach top and stop ----
+  // Mechanic: Awe. Reach the final platform, release horizontal movement, and let stillness fill.
   if(et==='climb'){
-    const isMoving=Math.abs(S.pvx)>0.4;
-    const highEnough=S.py<H*0.36;
+    const isMoving=Math.abs(S.pvx)>0.35||Math.abs(S.pvy)>0.35;
+    const finalPlatform=S.platforms.find(pl=>pl.final);
+    const highEnough=!!finalPlatform&&S.onGround&&S.px>=finalPlatform.x-12&&S.px<=finalPlatform.x+finalPlatform.w+12;
+    const ui=document.getElementById('mechanic-ui');
     if(highEnough&&!isMoving){
       S.aweStopped=Math.min(S.aweStopped+dt,S.aweNeeded);
+      document.getElementById('mechanic-bar-wrap').style.display='';
+      document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
+      document.getElementById('mechanic-label').textContent='Stop moving...';
+      document.getElementById('mechanic-label').style.textTransform='uppercase';
+      document.getElementById('mechanic-label').style.letterSpacing='0.22em';
+      ui.classList.add('show');
       if(S.aweStopped>=S.aweNeeded&&!S.mechComplete){
-        S.mechComplete=true;spawnOrb(S.px,S.py-55);
+        S.mechComplete=true;spawnOrb(S.px,S.py-48);
+        ui.classList.remove('show');
       }
-    } else {S.aweStopped=Math.max(0,S.aweStopped-50);}
-    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<38&&Math.abs(S.py-S.orbY)<40)collectOrb();
+    } else {
+      S.aweStopped=Math.max(0,S.aweStopped-dt/7000);
+      if(highEnough&&!S.mechComplete){
+        document.getElementById('mechanic-bar-wrap').style.display='';
+        document.getElementById('mechanic-bar').style.width=(S.aweStopped/S.aweNeeded*100)+'%';
+        document.getElementById('mechanic-label').textContent='Stop moving...';
+        document.getElementById('mechanic-label').style.textTransform='uppercase';
+        document.getElementById('mechanic-label').style.letterSpacing='0.22em';
+        ui.classList.add('show');
+      } else ui.classList.remove('show');
+    }
+    if(S.orbSpawned&&Math.abs(S.px-S.orbX)<44&&Math.abs(S.py-S.orbY)<50)collectOrb();
     if(S.collected.has(S.scene)&&S.px>1200)tryAdvance();
   }
 }
